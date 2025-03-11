@@ -1,0 +1,94 @@
+---
+// Proprietà che possono essere passate al componente
+const {
+  companyName = "Astro Tailwind",
+  activeLink = "home"
+} = Astro.props;
+---
+
+<header class="fixed w-full z-30 transition-all duration-300 bg-white shadow-md py-2" id="main-header">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <a href="/" class="text-xl font-bold text-blue-600">
+          {companyName}
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex space-x-8">
+        <a href="/" class={`text-gray-700 hover:text-blue-600 transition-colors ${activeLink === 'home' ? 'text-blue-600 font-medium' : ''}`}>
+          Home
+        </a>
+        <a href="/servizi" class={`text-gray-700 hover:text-blue-600 transition-colors ${activeLink === 'servizi' ? 'text-blue-600 font-medium' : ''}`}>
+          Servizi
+        </a>
+        <a href="/chi-siamo" class={`text-gray-700 hover:text-blue-600 transition-colors ${activeLink === 'chi-siamo' ? 'text-blue-600 font-medium' : ''}`}>
+          Chi Siamo
+        </a>
+        <a href="/contatti" class={`text-gray-700 hover:text-blue-600 transition-colors ${activeLink === 'contatti' ? 'text-blue-600 font-medium' : ''}`}>
+          Contatti
+        </a>
+      </nav>
+
+      <!-- Mobile Menu Button -->
+      <button
+        class="md:hidden text-gray-700"
+        id="mobile-menu-button"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" id="hamburger-icon" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" class="hidden" id="close-icon" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <nav class="md:hidden pt-4 pb-2 hidden" id="mobile-menu">
+      <div class="flex flex-col space-y-3">
+        <a href="/" class={`text-gray-700 hover:text-blue-600 transition-colors ${activeLink === 'home' ? 'text-blue-600 font-medium' : ''}`}>
+          Home
+        </a>
+        <a href="/servizi" class={`text-gray-700 hover:text-blue-600 transition-colors ${activeLink === 'servizi' ? 'text-blue-600 font-medium' : ''}`}>
+          Servizi
+        </a>
+        <a href="/chi-siamo" class={`text-gray-700 hover:text-blue-600 transition-colors ${activeLink === 'chi-siamo' ? 'text-blue-600 font-medium' : ''}`}>
+          Chi Siamo
+        </a>
+        <a href="/contatti" class={`text-gray-700 hover:text-blue-600 transition-colors ${activeLink === 'contatti' ? 'text-blue-600 font-medium' : ''}`}>
+          Contatti
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Funzione per attivare/disattivare il menu mobile
+  function toggleMobileMenu() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+
+    mobileMenu.classList.toggle('hidden');
+    hamburgerIcon.classList.toggle('hidden');
+    closeIcon.classList.toggle('hidden');
+  }
+
+  // Aggiungi l'evento di click al pulsante del menu mobile
+  document.getElementById('mobile-menu-button').addEventListener('click', toggleMobileMenu);
+  
+  // Gestisce lo scroll della navbar
+  window.addEventListener('scroll', function() {
+    const header = document.getElementById('main-header');
+
+    if (window.scrollY > 10) {
+      header.classList.add('bg-white', 'shadow-md', 'py-2');
+      header.classList.remove('bg-transparent', 'py-4');
+    } else {
+      header.classList.add('bg-transparent', 'py-4');
+      header.classList.remove('bg-white', 'shadow-md', 'py-2');
+    }
+  });
+</script>

@@ -1,0 +1,37 @@
+---
+import Header from '@/partials/Header.astro';
+import Footer from '@/partials/Footer.astro';
+
+// Layout props
+const {
+  title = "Astro Tailwind",
+  description = "Servizi di trasporto professionali per aziende",
+  activeLink = "home"
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content={description}>
+  <title>{title}</title>
+  <link rel="stylesheet" href="/styles/tailwind.css">
+</head>
+<body class="flex flex-col min-h-screen">
+  <!-- Inserisce direttamente il componente Header -->
+  <Header activeLink={activeLink} />
+
+  <!-- Aggiunge uno spazio per il fixed header -->
+  <div class="pt-16 lg:pt-20"></div>
+
+  <!-- Contenuto principale -->
+  <main class="flex-grow">
+    <slot />
+  </main>
+
+  <!-- Inserisce direttamente il componente Footer -->
+  <Footer />
+</body>
+</html>

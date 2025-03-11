@@ -1,0 +1,47 @@
+---
+// Proprietà del componente Card
+const {
+  title,
+  description,
+  imageUrl,
+  imageAlt = '',
+  linkUrl = '',
+  linkText = 'Scopri di più',
+  hoverable = true
+} = Astro.props;
+---
+
+<div class={`bg-white rounded-lg shadow-md overflow-hidden ${hoverable ? 'hover:shadow-lg transition-shadow duration-300' : ''}`}>
+  {imageUrl && (
+    <div class="relative overflow-hidden rounded-t-lg h-48">
+      <img
+        src={imageUrl}
+        alt={imageAlt}
+        class="w-full h-full object-cover transition-transform duration-500 ease-in-out"
+      />
+    </div>
+  )}
+  <div class="p-5">
+    {title && <h3 class="text-xl font-bold mb-2">{title}</h3>}
+    {description && <p class="text-gray-600 mb-4">{description}</p>}
+    {linkUrl && (
+      <a
+        href={linkUrl}
+        class="inline-flex items-center text-blue-600 hover:text-blue-800"
+      >
+        {linkText}
+        <svg
+          class="w-4 h-4 ml-1"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </a>
+    )}
+  </div>
+</div>
