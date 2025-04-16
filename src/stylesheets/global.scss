@@ -24,7 +24,7 @@ $font-size-mobile: (
   #{$tag}, .#{$tag} {
     font-size: list.nth($size, 1);
     line-height: list.nth($size, 2);
-    font-weight: 300;
+    font-weight: 200;
   }
 }
 
@@ -36,6 +36,23 @@ $font-size-mobile: (
             font-weight: 300;
         }
     }
+}
+
+.button-text {
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 200;
+}
+
+.small-paragraph {
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 200;
+
+  @media (min-width:769px) {
+    font-size: 16px;
+    line-height: 20px;
+  }
 }
 
 .grid-container {

@@ -5,9 +5,12 @@
     }
 
     .menu-hamburger {
+        transition: transform 0.7s ease-in-out;
         .hamburger-line {
             position: absolute;
             height: 2px;
+            
+            transition: all 0.7s ease-in-out !important;
 
             &:nth-child(1) {
                 top: 0;
@@ -97,6 +100,23 @@
         }
     }
 
+    &:has(#header-menu.open) {
+        .menu-hamburger {
+            transform: rotate(60deg);
+
+            .hamburger-line {
+                width: 60%;
+
+                &:nth-child(1) {
+                    left: 21px;
+                }
+                &:nth-child(2) {
+                    left: 16px;
+                }
+            }
+        }
+    }
+
     // Dark - Light
     &.dark {
         .section-menu {
@@ -155,12 +175,73 @@
             width: 100%;
         }
 
+        .grid-container {
+            @media (max-width:1024px) {
+                display: flex !important;
+            }
+        }
+
         .header-menu-inner {
             background: radial-gradient(
             circle at 100% 150%, 
             var(--color-green-dark),           
             var(--color-green-light)           
             );
+        }
+
+        .menu-left {
+            @media (max-width:1024px) {
+                position: relative;
+                &::before {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 77%;
+                    border-bottom: 1px solid #fff;
+                    opacity: .3;
+                }
+            }
+        }
+
+        .menu-left-subsection,
+        .menu-right-subsection {
+            .subpage {
+                .dash {
+                    opacity: 0;
+                    margin-left: -40px;
+                    transition: all 0.3s ease-in-out;
+                }
+            }
+
+            .subpage:hover {
+                .dash {
+                    opacity: 1;
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+
+    .contact-us a {
+        border-top-right-radius: 10px;
+
+        span {
+            position: relative;
+            z-index: 1;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            height: calc(100% - 6px);
+            width: auto;
+            aspect-ratio: 1.16;
+            right: 1px;
+            transform: translateX(50%);
+            clip-path: polygon(50% 0,100% 100%,0 100%);
+            background: #fff;
         }
     }
 }

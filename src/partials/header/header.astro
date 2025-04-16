@@ -6,6 +6,99 @@ import { Image } from 'astro:assets';
 import logoLight from '@/assets/images/svg/valente-logo-white.svg';
 import logoDark from '@/assets/images/svg/valente-logo-black.svg';
 import headset from '@/assets/images/svg/headset_mic.svg';
+import dash from '@/assets/images/svg/dash-green.svg';
+
+const menuLeftSubsections = [
+  {
+    title: 'Trasporto merci',
+    subpages: [
+      {
+        title: 'Trasporti a carico completo',
+        url: '#'
+      },
+      {
+        title: 'Distribuzione pallettizzata',
+        url: '#'
+      },
+      {
+        title: 'Trasporti espressi',
+        url: '#'
+      },
+    ] 
+  },
+  {
+    title: 'Autogru',
+    subpages: [
+      {
+        title: 'Noleggio autogru',
+        url: '#'
+      },
+      {
+        title: 'Pattini a rotolamento',
+        url: '#'
+      },
+    ] 
+  },
+  {
+    title: 'Logistica e deposito',
+    subpages: [
+      {
+        title: 'Logistica e deposito',
+        url: '#'
+      },
+    ] 
+  },
+];
+
+const menuRightSubsections = [
+  {
+    title: 'Sostenibilità',
+    subpages: [
+      {
+        title: 'Report di sostenibilità',
+        url: '#'
+      },
+      {
+        title: 'Certificazioni',
+        url: '#'
+      },
+    ] 
+  },
+  {
+    title: 'Azienda',
+    subpages: [
+      {
+        title: 'Chi siamo',
+        url: '#'
+      },
+      {
+        title: 'Codice etico',
+        url: '#'
+      },
+      {
+        title: 'Governance',
+        url: '#'
+      },
+    ] 
+  },
+  {
+    title: 'Esplora',
+    subpages: [
+      {
+        title: 'News',
+        url: '#'
+      },
+      {
+        title: 'Lavora con noi',
+        url: '#'
+      },
+      {
+        title: 'Download',
+        url: '#'
+      },
+    ] 
+  },
+]
 
 ---
 
@@ -35,7 +128,48 @@ import headset from '@/assets/images/svg/headset_mic.svg';
 
   <div id="header-menu" class="fixed top-0 right-0 h-full -z-10 overflow-hidden">
     <div class="header-menu-inner absolute top-0 right-0 bg-green-light w-screen h-full">
-      <p class="pl-5 pt-5">TEST TEST TEST</p>
+      <div class="max-lg:flex flex-col max-lg:px-5 md:max-h-[840px] grid-container w-full h-full max-lg:max-h-[calc(100%-200px)] overflow-auto max-lg:mt-[100px] lg:pt-[188px] pb-[90px]">
+        
+        <div class="menu-left col-start-4 col-span-4 flex flex-col max-lg:pb-11 max-lg:gap-y-6 lg:justify-between">
+          {menuLeftSubsections.map((subsection) => (
+            <div class="menu-left-subsection">
+              <h2 class="h4 lg:h2 text-white mb-4 lg:mb-6">{subsection.title}</h2>
+              <div class="menu-subsection-subpages flex flex-col gap-y-2">
+                {subsection.subpages.map((subpage) => (
+                  <div class="subpage flex gap-x-2 items-center">
+                    <Image src={dash} alt="dash" class='dash h-[10px] w-8'/>
+                    <a href={subpage.url} class="p lg:h5 text-dark">{subpage.title}</a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="menu-right col-start-9 col-span-4 flex flex-col max-lg:pt-11 max-lg:gap-y-11 justify-between">
+          {menuRightSubsections.map((subsection) => (
+            <div class="menu-right-subsection">
+              <h5 class="font-button uppercase button-text text-white mb-4 lg:mb-6">{subsection.title}</h2>
+              <div class="menu-subsection-subpages flex flex-col gap-y-2">
+                {subsection.subpages.map((subpage) => (
+                  <div class="subpage flex gap-x-2 items-center">
+                    <Image src={dash} alt="dash" class='dash h-[10px] w-8'/>
+                    <a href={subpage.url} class="p text-dark">{subpage.title}</a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        
+      </div>
+
+      <div class="contact-us absolute bottom-0 left-0">
+        <a href="#" class="h4 inline-block lg:w-[216px] max-lg:pr-4 max-lg:pl-5 py-7 lg:py-16 bg-white text-dark text-center">
+          <span class="lg:hidden">Contatti</span>
+          <span class="max-lg:hidden">Contattaci</span>
+        </a>
+      </div>
     </div>
   </div>
 </header>

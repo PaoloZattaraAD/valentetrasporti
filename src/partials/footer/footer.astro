@@ -1,0 +1,119 @@
+---
+import './style.scss';
+
+import { Image } from 'astro:assets';
+import logoLight from '@/assets/images/svg/valente-logo-white.svg';
+
+const currentYear = new Date().getFullYear();
+
+const footerMidMenu = [
+  {
+    title: "Servizi",
+    content: [
+      {
+        label: "Trasporto merci",
+        url: '#'
+      },
+      {
+        label: "Autogru",
+        url: '#'
+      },
+      {
+        label: "Logistica e trasporto",
+        url: '#'
+      },
+    ]
+  },
+  {
+    title: "Azienda",
+    content: [
+      {
+        label: "Chi siamo",
+        url: '#'
+      },
+      {
+        label: "Codice etico",
+        url: '#'
+      },
+      {
+        label: "Governance",
+        url: '#'
+      },
+    ]
+  },
+  {
+    title: "Sostenibilità",
+    content: [
+      {
+        label: "Report di sostenibilità",
+        url: '#'
+      },
+      {
+        label: "Certificazioni",
+        url: '#'
+      },
+    ]
+  },
+  {
+    title: "Esplora",
+    content: [
+      {
+        label: "News",
+        url: '#'
+      },
+      {
+        label: "Lavora con noi",
+        url: '#'
+      },
+      {
+        label: "Download",
+        url: '#'
+      },
+    ]
+  }
+] 
+---
+
+<footer class="bg-dark z-10 pt-20 pb-[100px] px-12">
+  <div class="footer-inner flex flex-col gap-y-[120px]">
+    <div class="footer-top grid-container">
+      <Image src={logoLight} alt="logo" class='col-span-3 logo-light w-[216px] h-[30px]'/>
+      <div class="column col-span-3 text-white">
+        <p class="small-paragraph mb-2">Via dell'Elettronica, 10 - 36016 Thiene (VI)</p>
+        <p class="small-paragraph">Lun - Sab : 8.00 - 20.00</p>
+      </div>
+      <div class="column col-span-3 text-white">
+        <p class="small-paragraph">info@valentetrasporti.com</p>
+        <p class="">+39 0445 361191</p>
+      </div>
+    </div>
+
+    <div class="footer-mid grid-container">
+      {
+        footerMidMenu.map((menu) => (
+          <div class="column col-span-3 text-white">
+            <p class="button-primary font-button uppercase opacity-30 mb-10">{menu.title}</p>
+            <div class="content flex flex-col gap-y-2">
+              {
+                menu.content.map((content) => (
+                  <a href={content.url} class="small-paragraph">{content.label}</a>
+                ))
+              }
+            </div>
+          </div>
+        ))
+      } 
+    </div>
+
+    <div class="footer-bottom grid-container text-white opacity-30">
+      <p class="column col-span-3">©2024 Valente Angelo di Valente Enzo Ennio e Antonio & C. s.a.s.Albo Autotrasportatori n. VI/2951499/D - Licenza Comunitaria n.95267</p>
+      <p class="column col-span-3">Registro imprese di Vicenza n.00167720242r.e.a. Vicenza n.139125Cod.fisc. e partita i.v.a. IT 00167720242</p>
+      <p class="column col-span-3">
+        <a href="#">Cookie Policy</a>
+        <a href="#">Privacy Policy</a>
+      </p>
+      <p class="column col-span-3">©2024 Valente Angelo di Valente Enzo Ennio e Antonio & C. s.a.s.Albo Autotrasportatori n. VI/2951499/D - Licenza Comunitaria n.95267</p>
+      <p class="column col-span-3">Made by Archetipi Digitali</p>
+    </div>
+  </div>
+</footer>
