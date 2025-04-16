@@ -1,0 +1,164 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/atoms/card/card/Card.astro';
+import BlockTab from '@/components/atoms/block-tab/block-tab.astro';
+
+// Definisci i dati per le card dei servizi
+const services = [
+  {
+    title: 'Trasporto Industriale',
+    description: 'Servizi di trasporto per il settore industriale con mezzi specializzati.',
+    imageUrl: 'https://via.placeholder.com/300x200',
+    linkUrl: '/servizi/trasporto-industriale',
+    linkText: 'Scopri di più'
+  },
+  {
+    title: 'Trasporto Merci',
+    description: 'Consegna affidabile e puntuale di merci in tutta Italia ed Europa.',
+    imageUrl: 'https://via.placeholder.com/300x200',
+    linkUrl: '/servizi/trasporto-merci',
+    linkText: 'Scopri di più'
+  },
+  {
+    title: 'Logistica Integrata',
+    description: 'Soluzioni complete di logistica e gestione del magazzino.',
+    imageUrl: 'https://via.placeholder.com/300x200',
+    linkUrl: '/servizi/logistica-integrata',
+    linkText: 'Scopri di più'
+  }
+];
+---
+
+<Layout
+  title="Astro Tailwind - Home"
+  description="Soluzioni di trasporto professionali, affidabili e puntuali per la tua azienda."
+  activeLink="home"
+>
+  <!-- Hero Section -->
+  <section class="relative bg-blue-600 text-white py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-2xl">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          Benvenuti in Astro Tailwind
+        </h1>
+        <p class="text-xl mb-8">
+          Soluzioni di trasporto professionali, affidabili e puntuali per la tua azienda.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a
+            href="/contatti"
+            class="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-medium transition-colors"
+          >
+            Contattaci
+          </a>
+          <a
+            href="/chi-siamo"
+            class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-600 px-6 py-3 rounded-lg font-medium transition-colors"
+          >
+            Scopri di più
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-16 bg-gray-50 relative">
+    <BlockTab 
+      title="Da oltre 70 anni"
+      content="Trasportiamo con cura, pensando al futuro di tutti"
+      contentColor="green-light"
+      backgroundColor="dark"
+    />
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">I Nostri Servizi</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto font-main">
+          Offriamo una vasta gamma di servizi di trasporto per soddisfare le vostre esigenze.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map((service) => (
+          <Card
+            title={service.title}
+            description={service.description}
+            imageUrl={service.imageUrl}
+            imageAlt={`Immagine ${service.title}`}
+            linkUrl={service.linkUrl}
+            linkText={service.linkText}
+            hoverable={true}
+          />
+        ))}
+      </div>
+
+      <div class="text-center mt-12">
+        <a
+          href="/servizi"
+          class="inline-block bg-blue-600 text-white hover:bg-blue-700 px-6 py-3 rounded-lg font-medium transition-colors"
+        >
+          Tutti i Servizi
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+          <img
+            src="https://via.placeholder.com/600x400"
+            alt="Chi siamo"
+            class="rounded-lg shadow-lg w-full"
+          >
+        </div>
+        <div class="md:w-1/2">
+          <h2 class="text-3xl font-bold mb-4">Chi Siamo</h2>
+          <p class="text-gray-600 mb-6">
+            Astro Tailwind è un'azienda leader nel settore dei trasporti con oltre 20 anni di esperienza.
+            Offriamo soluzioni personalizzate per le esigenze di ogni cliente, garantendo affidabilità e puntualità.
+          </p>
+          <p class="text-gray-600 mb-6">
+            La nostra flotta moderna e il nostro team di professionisti ci permettono di offrire un servizio
+            di alta qualità in tutta Italia e in Europa.
+          </p>
+          <a
+            href="/chi-siamo"
+            class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
+          >
+            Scopri di più su di noi
+            <svg
+              class="w-4 h-4 ml-1"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="bg-blue-600 text-white py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4">Pronti a iniziare?</h2>
+      <p class="text-xl mb-8 max-w-3xl mx-auto">
+        Contattaci oggi stesso per un preventivo gratuito e scopri come possiamo aiutarti.
+      </p>
+      <a
+        href="/contatti"
+        class="inline-block bg-white text-blue-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-bold text-lg transition-colors"
+      >
+        Contattaci Ora
+      </a>
+    </div>
+  </section>
+</Layout>

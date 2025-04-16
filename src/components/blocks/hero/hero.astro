@@ -1,0 +1,18 @@
+---
+import './style.scss';
+
+import { Image } from 'astro:assets';
+
+const {
+  backgroundImage,
+  backgroundImageAlt,
+} = Astro.props;
+---
+
+<section class="hero w-screen h-screen">
+    <div class="fixed hero-inner w-full h-full">
+        <figure class="w-full h-full">
+            <Image src={backgroundImage} alt={backgroundImageAlt} class="w-full h-full object-cover"/>
+        </figure>
+    </div>
+</section>

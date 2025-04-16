@@ -4,14 +4,28 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Puoi aggiungere colori personalizzati qui
-        // 'primary': '#3B82F6',
+        dark: 'var(--color-dark)',
+        light: 'var(--color-light)',
+        red: 'var(--color-red)',
+        green: {
+          light: 'var(--color-green-light)',
+          dark: 'var(--color-green-dark)',
+        },
+        grey: {
+          light: 'var(--color-grey-light)',
+          dark: 'var(--color-grey-dark)',
+        }
       },
       fontFamily: {
-        // Puoi aggiungere font personalizzati qui
-        // 'sans': ['Roboto', 'sans-serif'],
-      },
+        'main': ['neue-haas-unica', 'sans-serif'],
+        'button': ['microgramma-extended', 'sans-serif'],
+        'mono': ['space-mono', 'sans-serif'],
+      }
     },
   },
+  safelist: [
+    { pattern: /^text-(dark|light|red|green-light|green-dark|grey)$/ },
+    { pattern: /^bg-(dark|light|red|green-light|green-dark|grey)$/ },
+  ],
   plugins: [],
 }

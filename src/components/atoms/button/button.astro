@@ -1,0 +1,22 @@
+---
+import './style.scss';
+
+import { Image } from 'astro:assets';
+import arrow from '@/assets/images/svg/arrow.svg';
+
+const {
+  label,
+  url,
+  style
+} = Astro.props;
+
+---
+
+<a href={url} class=`button ${style} inline-flex relative min-w-0 items-center gap-x-3`>
+  <div class="icon z-10 w-10 h-10 flex justify-center items-center py-[10px]">
+    <Image src={arrow} alt="arrow-svg h-full"/>
+  </div>
+  <div class="text h-10 z-10 flex items-center">
+    <p class="font-button text-white uppercase">{label}</p>
+  </div>
+</a>

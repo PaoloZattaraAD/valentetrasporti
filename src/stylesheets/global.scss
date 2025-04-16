@@ -1,0 +1,43 @@
+@use "sass:list";
+
+$font-size: (
+  h1: (90px, 92px),
+  h2: (42px, 48px),
+  h3: (34px, 40px),
+  h4: (28px, 34px),
+  h5: (24px, 30px),
+  h6: (16px, 16px),
+  p: (18px, 24px),
+);
+
+$font-size-mobile: (
+  h1: (46px, 48px),
+  h2: (32px, 36px),
+  h3: (28px, 34px),
+  h4: (22px, 28px),
+  h5: (20px, 26px),
+  h6: (12px, 12px),
+  p: (16px, 22px),
+);
+
+@each $tag, $size in $font-size {
+  #{$tag}, .#{$tag} {
+    font-size: list.nth($size, 1);
+    line-height: list.nth($size, 2);
+    font-weight: 300;
+  }
+}
+
+@media (max-width:768px) {
+    @each $tag, $size in $font-size-mobile {
+        #{$tag}, .#{$tag} {
+            font-size: list.nth($size, 1);
+            line-height: list.nth($size, 2);
+            font-weight: 300;
+        }
+    }
+}
+
+.grid-container {
+    @apply w-full max-w-none px-5 md:px-12 grid grid-cols-12 gap-x-2 md:gap-x-3 ;
+}

@@ -1,0 +1,45 @@
+a.button {
+    &:hover {
+        &::before {
+            right: -12px;
+        }
+
+        .text {
+            margin-left: -12px;
+
+            p {
+                color: var(--color-dark);
+            }
+        }
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: auto;
+        bottom: 0;
+        right: calc(100% - 40px);
+        border-radius: 4px;
+
+        transition: right 0.3s ease-in-out;
+    }
+
+    &.primary::before {
+        background-color: var(--color-red);
+    }
+
+    .text {
+        transition: all 0.3s ease-in-out;
+    
+        p {
+            font-size: 13px;
+            line-height: 1;
+        
+            @media (min-width:768px) {
+                font-size: 16px;
+            }
+        }
+    }
+}

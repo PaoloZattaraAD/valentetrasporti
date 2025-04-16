@@ -1,0 +1,64 @@
+---
+
+import './style.scss';
+
+import { Image } from 'astro:assets';
+import logoLight from '@/assets/images/svg/valente-logo-white.svg';
+import logoDark from '@/assets/images/svg/valente-logo-black.svg';
+import headset from '@/assets/images/svg/headset_mic.svg';
+
+---
+
+<header class="fixed w-full z-[9999] transition-all duration-300 lg:my-6 h-[60px] dark" id="main-header">
+  <div class="flex justify-between items-center h-full">
+    <a class="logo relative h-4 lg:h-10 w-[110px] lg:w-[140px] ml-5 lg:ml-12 mr-auto flex items-center" href="#">
+      <Image src={logoDark} alt="logo" class='logo-dark absolute top-0 left-0 w-full h-full'/>
+      <Image src={logoLight} alt="logo" class='logo-light absolute top-0 left-0 w-full h-full'/>
+    </a>
+    <div class="navigation h-full flex gap-x-[55px] lg:gap-x-[70px]">
+      <a href="#" class="button relative section-red bg-red text-white font-button h-full px-3 lg:px-5 flex items-center uppercase">
+        <p class="hidden lg:block">Richiedi un preventivo</p>
+        <Image src={headset} alt="logo" class='h-5 w-5 lg:hidden'/>
+      </a>
+      <div href="#" class="flex relative section-menu items-center gap-x-14 text-white font-button h-full pr-5 pl-3 lg:pl-5 flex items-center lg:pr-12">
+        <button id="menu-hamburger" class="menu-hamburger h-full h-5 relative w-20">
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+        </button>
+        <button class="lang-selector hidden lg:block rounded-lg bg-grey-dark w-8 h-8">
+          IT
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="header-menu" class="fixed top-0 right-0 h-full -z-10 overflow-hidden">
+    <div class="header-menu-inner absolute top-0 right-0 bg-green-light w-screen h-full">
+      <p class="pl-5 pt-5">TEST TEST TEST</p>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Funzione per attivare/disattivare il menu mobile
+  function toggleMenu() {
+    const mobileMenu = document.getElementById('header-menu');
+
+    mobileMenu.classList.toggle('open');
+  }
+
+  // Aggiungi l'evento di click al pulsante del menu mobile
+  document.getElementById('menu-hamburger').addEventListener('click', toggleMenu);
+  
+  // Gestisce lo scroll della navbar
+  window.addEventListener('scroll', function() {
+    const header = document.getElementById('main-header');
+
+    if (window.scrollY > 10) {
+      
+    } else {
+
+    }
+  });
+</script>
