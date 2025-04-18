@@ -9,7 +9,8 @@ import Footer from '@/partials/footer/Footer.astro';
 const {
   title = "Astro Tailwind",
   description = "Servizi di trasporto professionali per aziende",
-  activeLink = "home"
+  activeLink = "home",
+  bodyClass = ""
 } = Astro.props;
 ---
 
@@ -25,7 +26,7 @@ const {
 
   <link rel="stylesheet" href="/styles/tailwind.css">
 </head>
-<body class="flex flex-col min-h-screen">
+<body class=`flex flex-col min-h-screen ${bodyClass}`>
   <!-- Inserisce direttamente il componente Header -->
   <Header activeLink={activeLink} />
 

@@ -12,6 +12,11 @@ a.button {
             }
         }
     }
+    &.primary-variant:hover {
+        p {
+            color: #fff;
+        }
+    }
 
     &::before {
         content: '';
@@ -26,8 +31,17 @@ a.button {
         transition: right 0.3s ease-in-out;
     }
 
-    &.primary::before {
-        background-color: var(--color-red);
+    &.primary,
+    &.primary-variant {
+        &::before {
+            background-color: var(--color-red);
+        }
+    }
+    &.primary {
+        @apply text-white;
+    }
+    &.primary-variant {
+        @apply text-dark;
     }
 
     .text {

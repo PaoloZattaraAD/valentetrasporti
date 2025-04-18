@@ -1,37 +1,40 @@
 ---
-    import './style.scss';
+import './style.scss';
 
-    import BlockTab from '@/components/atoms/block-tab/block-tab.astro';
-    import Button from '@/components/atoms/button/button.astro';
+import Button from '@/components/atoms/button/button.astro';
 
-    const {
-        content,
-    } = Astro.props;
+const {
+    content,
+    hasTab,
+    bgColor,
+    headerLight = false,
+    ctaLabel = '',
+    ctaUrl = '',
+    ctaStyle = 'primary'
+} = Astro.props;
 
-    const splitContent = content.split(/\s+/);
+const splitContent = content.split(/\s+/);
 ---
-
-<section class="scrolling-text relative bg-dark md:pt-[160px]">
-    <BlockTab 
-      title="Da oltre 70 anni"
-      content="Trasportiamo con cura, pensando al futuro di tutti"
-      contentColor="green-light"
-      backgroundColor="dark"
-    />
-    
+<section class=`scrolling-text relative bg-${bgColor} ${headerLight ? 'header-light' : 'header-dark'} z-10`>
     <div class="grid-container">
-        <div class="content col-start-3 col-end-13">
+        <div class=`content col-start-3 col-end-12 pb-[160px] ${hasTab ? 'max-md:pt-6 md:-mt-[120px]' : 'md:pt-[160px]'}`>
             <div class="content-text flex flex-wrap gap-x-3 md:gap-x-6 pt-4 md:pt-0 pb-14 md:pb-20">
-                {splitContent.map((word) => (
-                    <span class="h1 text-white">{word}</span>
+                {splitContent.map((word, id) => (
+                    <span 
+                    class="h1 text-white"
+                    >
+                    {word}
+                    </span>
                 ))}
             </div>
 
-            <Button
-                label="La nostra storia",
-                url="#",
-                style="primary"
-            />
+            {ctaUrl != '' && (
+                <Button
+                    label={ctaLabel}
+                    url={ctaUrl}
+                    style={ctaStyle}
+                />
+            )}
         </div>
     </div>
 </section>

@@ -1,0 +1,21 @@
+---
+import './style.scss';
+
+import { Image } from 'astro:assets';
+
+const {
+  backgroundImage,
+  backgroundImageAlt,
+  headerColor,
+  hasTopFade = false,
+} = Astro.props;
+---
+
+<section class={`image w-screen h-[calc(100vh+280px)] header-${headerColor}`}>
+    <figure class="w-full h-full relative">
+        { hasTopFade && (
+            <div class={`absolute top-0 left-0 right-0 h-[200px] top-fade`}></div>
+        )}
+        <Image src={backgroundImage} alt={backgroundImageAlt} class="w-full h-full object-cover"/>
+    </figure>
+</section>

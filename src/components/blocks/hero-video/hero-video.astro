@@ -1,0 +1,20 @@
+---
+import './style.scss';
+
+const {
+  backgroundVideo
+} = Astro.props;
+---
+
+<section class="hero w-screen h-screen header-dark">
+    <div class="fixed hero-inner w-full h-full -z-10">
+        <iframe
+            src={backgroundVideo}
+            width="640"
+            height="360"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+            class="w-full h-full"
+      ></iframe>
+    </div>
+</section>

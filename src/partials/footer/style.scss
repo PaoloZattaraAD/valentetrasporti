@@ -1,4 +1,23 @@
 footer {
+    position: relative;
+    overflow: hidden;
+
+    .grid-container {
+        @media (max-width:768px) {
+            padding: 0 !important;
+        }
+    }
+
+    figure::before {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        height: 500vh;
+        background-color: var(--color-dark)
+    }
+
     .footer-top,
     .footer-mid {
         p {
@@ -6,12 +25,20 @@ footer {
         }
     }
 
-    .footer-bottom * {
-        p, a {
-            display: block;
+    .footer-bottom {
+        >p {
+            @media (max-width:768px) {
+                width: calc(50% - 4px) !important;
+            }
         }
+        
+        * {
+            p, a {
+                display: block;
+            }
 
-        font-size: 11px;
-        line-height: 15px;
+            font-size: 11px;
+            line-height: 15px;
+        }
     }
 }

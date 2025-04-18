@@ -1,0 +1,32 @@
+---
+import './style.scss';
+
+import { Image } from 'astro:assets';
+
+import truck from '@/assets/images/home/truck.webp';
+import wheelFront from '@/assets/images/home/wheel-front.webp';
+import wheelBack from '@/assets/images/home/wheel-back.webp';
+import wheelCargo from '@/assets/images/home/wheel-cargo.webp';
+
+---
+
+<section class="truck-scroll pb-[320px] bg-dark z-10 relative">
+    <div class="sticky truck header-light">
+        <Image src={truck} alt="truck"/>
+        <div class="wheel wheel-1">
+            <Image src={wheelFront} alt="truck-wheel"/>
+        </div>
+        <div class="wheel wheel-2">
+            <Image src={wheelBack} alt="truck-wheel"/>
+        </div>
+        <div class="wheel wheel-3">
+            <Image src={wheelCargo} alt="truck-wheel"/>
+        </div>
+        <div class="wheel wheel-4">
+            <Image src={wheelCargo} alt="truck-wheel"/>
+        </div>
+        <div class="wheel wheel-5">
+            <Image src={wheelCargo} alt="truck-wheel"/>
+        </div>
+    </div>
+</section>

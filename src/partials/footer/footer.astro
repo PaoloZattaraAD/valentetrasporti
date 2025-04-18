@@ -3,6 +3,7 @@ import './style.scss';
 
 import { Image } from 'astro:assets';
 import logoLight from '@/assets/images/svg/valente-logo-white.svg';
+import footerBg from '@/assets/images/svg/footer-bg.svg';
 
 const currentYear = new Date().getFullYear();
 
@@ -74,11 +75,14 @@ const footerMidMenu = [
 ] 
 ---
 
-<footer class="bg-dark z-10 pt-20 pb-[100px] px-12">
-  <div class="footer-inner flex flex-col gap-y-[120px]">
-    <div class="footer-top grid-container">
-      <Image src={logoLight} alt="logo" class='col-span-3 logo-light w-[216px] h-[30px]'/>
-      <div class="column col-span-3 text-white">
+<footer class="bg-transparent z-10 bg-white">
+  <figure class="absolute -z-10 w-full">
+    <Image src={footerBg} alt="footer-bg" class="w-full"/>
+  </figure>
+  <div class="footer-inner pt-12 md:pt-20 pb-[52px] md:pb-[100px] px-5 md:px-12 flex flex-col gap-y-20 md:gap-y-[120px]">
+    <div class="footer-top grid-container max-md:!flex flex-col">
+      <Image src={logoLight} alt="logo" class='col-span-3 logo-light w-[110px] md:w-[216px] h-[15px] md:h-[30px] max-md:mb-12'/>
+      <div class="column col-span-3 text-white max-md:mb-6">
         <p class="small-paragraph mb-2">Via dell'Elettronica, 10 - 36016 Thiene (VI)</p>
         <p class="small-paragraph">Lun - Sab : 8.00 - 20.00</p>
       </div>
@@ -88,11 +92,11 @@ const footerMidMenu = [
       </div>
     </div>
 
-    <div class="footer-mid grid-container">
+    <div class="footer-mid grid-container max-md:!flex flex-wrap gap-x-2 gap-y-12">
       {
         footerMidMenu.map((menu) => (
-          <div class="column col-span-3 text-white">
-            <p class="button-primary font-button uppercase opacity-30 mb-10">{menu.title}</p>
+          <div class="column col-span-3 text-white max-md:w-[calc(50%-4px)]">
+            <p class="button-text font-button uppercase opacity-30 !mb-6 md:!mb-10">{menu.title}</p>
             <div class="content flex flex-col gap-y-2">
               {
                 menu.content.map((content) => (
@@ -105,14 +109,13 @@ const footerMidMenu = [
       } 
     </div>
 
-    <div class="footer-bottom grid-container text-white opacity-30">
+    <div class="footer-bottom grid-container text-white opacity-30 max-md:!flex flex-wrap gap-y-4">
       <p class="column col-span-3">©2024 Valente Angelo di Valente Enzo Ennio e Antonio & C. s.a.s.Albo Autotrasportatori n. VI/2951499/D - Licenza Comunitaria n.95267</p>
-      <p class="column col-span-3">Registro imprese di Vicenza n.00167720242r.e.a. Vicenza n.139125Cod.fisc. e partita i.v.a. IT 00167720242</p>
+      <p class="column col-span-3">Registro imprese di Vicenza n.00167720242r.e.a. Vicenza n.139125<br>Cod.fisc. e partita i.v.a. IT 00167720242</p>
       <p class="column col-span-3">
-        <a href="#">Cookie Policy</a>
+        <a href="#">Cookie Policy<span class="md:hidden"> | </span></a>
         <a href="#">Privacy Policy</a>
       </p>
-      <p class="column col-span-3">©2024 Valente Angelo di Valente Enzo Ennio e Antonio & C. s.a.s.Albo Autotrasportatori n. VI/2951499/D - Licenza Comunitaria n.95267</p>
       <p class="column col-span-3">Made by Archetipi Digitali</p>
     </div>
   </div>

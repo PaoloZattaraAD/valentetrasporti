@@ -5,12 +5,12 @@
     }
 
     .menu-hamburger {
-        transition: transform 0.7s ease-in-out;
+        transition: transform 0.3s ease-in-out;
         .hamburger-line {
             position: absolute;
             height: 2px;
             
-            transition: all 0.7s ease-in-out !important;
+            transition: all 0.3s ease-in-out !important;
 
             &:nth-child(1) {
                 top: 0;
@@ -154,22 +154,22 @@
     }
 
     .section-menu {
-        transition: background-color 0.7s ease-in-out;
+        transition: background-color 0.3s ease-in-out;
         &::before {
-            transition: background-color 0.7s ease-in-out;
+            transition: background-color 0.3s ease-in-out;
         }
         .hamburger-line {
-            transition: background-color 0.7s ease-in-out;
+            transition: background-color 0.3s ease-in-out;
         }
     }
     .logo img {
-        transition: opacity 0.7s ease-in-out;
+        transition: opacity 0.3s ease-in-out;
     }
 
     // Menu
     #header-menu {
         width: 0;
-        transition: width 0.7s ease-in-out;
+        transition: width 0.3s ease-in-out;
 
         &.open {
             width: 100%;

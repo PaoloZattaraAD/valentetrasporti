@@ -1,12 +1,50 @@
 ---
+import './style.scss';
+
 // Components
 import Layout from '@/layouts/Layout.astro';
 
-import Hero from '@/components/blocks/hero/hero.astro';
+import BlockTab from '@/components/atoms/block-tab/block-tab.astro';
+import HeroVideo from '@/components/blocks/hero-video/hero-video.astro';
 import ScrollingText from '@/components/blocks/scrolling-text/scrolling-text.astro';
+import TruckScroll from '@/components/blocks/truck-scroll/truck-scroll.astro';
+import ImageBlock from '@/components/blocks/image/image.astro';
+import GradientTabSection from '@/components/blocks/gradient-tab-section/gradient-tab-section.astro';
+import Services from '@/components/blocks/services/services.astro';
 
 // Assets
 import heroImage from '@/assets/images/home/home-hero.webp';
+import bridgeImage from '@/assets/images/home/bridge.webp';
+import star from '@/assets/images/home/star.webp';
+
+// Assets - Services
+import trasportoImg from '@/assets/images/svg/trasporto-merci-illustrazione.svg';
+import autogruImg from '@/assets/images/svg/trasporto-merci-illustrazione.svg';
+import logisticaImg from '@/assets/images/svg/trasporto-merci-illustrazione.svg';
+
+const services = [
+    {
+      name: "Traporto merci",
+      description: "SERVIZI 1 di trasporto merci con bilici, motrici e furgoni. La nostra flotta comprende mezzi centinati, aperti e furgonati, ideali per il trasporto di merci standard, eccezionali e ADR. Affidabilità e flessibilità per ogni esigenza logistica.",
+      url: "url 1",
+      image: trasportoImg,
+      imageAlt: "trasporto",
+    },
+    {
+      name: "Autogru",
+      description: "SERVIZI 2 di trasporto merci con bilici, motrici e furgoni. La nostra flotta comprende mezzi centinati, aperti e furgonati, ideali per il trasporto di",
+      url: "url 2",
+      image: autogruImg,
+      imageAlt: "autogru",
+    },
+    {
+      name: "Logistica e deposito",
+      description: "SERVIZI 3 di trasporto merci con bilici, motrici e furgoni. La nostra flotta comprende mezzi centinati, aperti e furgonati, ideali per il trasporto di merci standard, eccezionali e ADR. Affidabilità e flessibilità per ogni esigenza logistica. merci standard, eccezionali e ADR. Affidabilità e flessibilità per ogni esigenza logistica. merci standard, eccezionali e ADR. Affidabilità e flessibilità per ogni esigenza logistica.",
+      url: "url 3",
+      image: logisticaImg,
+      imageAlt: "logistica",
+    }
+  ]
 
 ---
 
@@ -14,16 +52,52 @@ import heroImage from '@/assets/images/home/home-hero.webp';
   title="Astro Tailwind - Home"
   description="Soluzioni di trasporto professionali, affidabili e puntuali per la tua azienda."
   activeLink="home"
+  bodyClass="home-page"
 >
+
+  <BlockTab 
+    title="Da oltre 70 anni"
+    content="Trasportiamo con cura, pensando al futuro di tutti"
+    contentColor="green-light"
+    backgroundColor="dark"
+  />
   
-  <Hero
-    backgroundImage={heroImage}
-    backgroundImageAlt="hero-background"
+  <HeroVideo
+    backgroundVideo="https://player.vimeo.com/video/449787858?autoplay=1&muted=1&background=1"
   />
 
   <ScrollingText
     content="Operiamo nel settore degli autotrasporti e servizi autogru da oltre 70 anni e questo non è per noi un punto d’arrivo ma di partenza ogni giorno."
+    bgColor="dark"
+    headerLight=true
+    ctaLabel="La nostra storia"
+    ctaUrl="#"
+    ctaStyle="primary"
   />
 
-  <div class="bg-grey-light py-20 relative z-10"></div>
+  <TruckScroll/>
+
+  <Services
+    services={services}
+  />
+
+  <ImageBlock
+    backgroundImage={bridgeImage}
+    backgroundImageAlt="bridge"
+    headerColor="dark"
+    hasTopFade="true"
+  />
+
+  <GradientTabSection>
+      <ScrollingText
+        content="Diamo respiro al cambiamento: il nostro impegno per la sostenibilità guarda al futuro delle persone, del territorio e dell’ambiente."
+        hasTab=true
+        bgColor="transparent"
+        ctaLabel="Valente per la sostenibilità"
+        ctaUrl="#"
+        ctaStyle="primary-variant"
+      />
+  </GradientTabSection>
+
+  <div class="bg-white py-20 relative z-10"></div>
 </Layout>

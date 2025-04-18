@@ -1,0 +1,75 @@
+section.truck-scroll {
+    overflow: visible;
+    overflow-x: clip;
+
+    // truck scroll length (clamped)
+    height: min(max(1000px, 300vh), 2500px);
+
+    .truck {
+        top: calc(50vh - 11vw);
+        max-width: 2420px;
+        // transform: translateX(-100%);
+
+        // // wheel reference line
+        // &::before {
+        //     content: '';
+        //     position: absolute;
+        //     bottom: 0;
+        //     left: 0;
+        //     right: 0;
+        //     border-bottom: 1px solid #fff;
+        // }
+    }
+    .wheel {
+        @apply absolute;
+
+        animation-name: wheelTurn;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-duration: 1.2s;
+
+        width: 7.2%;;
+        aspect-ratio: 1;
+
+        // front wheels
+        &-1 {
+            right: 5.6%;
+            bottom: -7.6%;
+            transform-origin: calc(50% + 1px) 50%;
+            
+            img { transform: rotate(270deg); }
+        }
+        &-2 {
+            right: 28.7%;
+            bottom: -7.6%;
+
+            img { transform: rotate(60deg); }
+        }
+
+        // back wheels
+        &-3, &-4, &-5 {
+            bottom: -8.8%;
+        }
+        &-3 {
+            left: 29.4%;
+            img { transform: rotate(20deg); }
+        }
+        &-4 {
+            left: 22.2%;
+            img { transform: rotate(200deg); }
+        }
+        &-5 {
+            left: 14.9%;
+            img { transform: rotate(120deg); }
+        }
+    }
+}
+
+@keyframes wheelTurn {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

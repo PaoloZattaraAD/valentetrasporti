@@ -114,7 +114,7 @@ const menuRightSubsections = [
         <Image src={headset} alt="logo" class='h-5 w-5 lg:hidden'/>
       </a>
       <div href="#" class="flex relative section-menu items-center gap-x-14 text-white font-button h-full pr-5 pl-3 lg:pl-5 flex items-center lg:pr-12">
-        <button id="menu-hamburger" class="menu-hamburger h-full h-5 relative w-20">
+        <button id="menu-hamburger" class="menu-hamburger h-5 relative w-20">
           <div class="hamburger-line"></div>
           <div class="hamburger-line"></div>
           <div class="hamburger-line"></div>
@@ -195,4 +195,29 @@ const menuRightSubsections = [
 
     }
   });
+
+  // Take care of switching header color
+  const header = document.getElementById('main-header');
+  const sections = document.querySelectorAll('.header-light, .header-dark');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (entry.target.classList.contains('header-dark')) {
+            header.classList.remove('light');
+            header.classList.add('dark');
+          } else {
+            header.classList.remove('dark');
+            header.classList.add('light');
+          }
+        }
+      });
+    },
+    {
+      threshold: 0.6,
+    }
+  );
+
+  sections.forEach((section) => observer.observe(section));
 </script>

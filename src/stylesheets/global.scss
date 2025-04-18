@@ -1,5 +1,9 @@
 @use "sass:list";
 
+html, body {
+  overscroll-behavior: none;
+}
+
 $font-size: (
   h1: (90px, 92px),
   h2: (42px, 48px),
@@ -39,9 +43,13 @@ $font-size-mobile: (
 }
 
 .button-text {
-    font-size: 16px;
+    font-size: 13px;
     line-height: 1;
     font-weight: 200;
+
+    @media (min-width:769px) {
+      font-size: 16px;
+    }
 }
 
 .small-paragraph {
