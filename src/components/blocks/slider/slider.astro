@@ -1,0 +1,86 @@
+---
+
+import './style.scss';
+
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Image } from 'astro:assets';
+import arrow from '@/assets/images/svg/arrow.svg';
+
+const {
+    slides = [
+        {
+            image: null,
+            content: "",
+            editorName: "",
+            editorRole: "",
+            editorImage: "",
+        }
+    ]
+} = Astro.props;
+---
+
+<section class="slider bg-light header-dark overflow-hidden">
+    <div class="swiper-container">
+        <div class="swiper swiper-gallery">
+            <div class="swiper-wrapper pl-[calc(16.667vw+24px)]">
+                {slides.map(slide => (
+                    <div class="swiper-slide rounded-xl">
+                        {slide.image ? (
+                            <Image src={slide.image} alt='slider-image'/>
+                        ): (
+                            <div>CONTENT</div>
+                        )}
+                    </div>
+                ))}
+                <div class="swiper-slide"></div>
+            </div>
+        </div>
+    </div>
+    <div class="slider-cursor pointer-events-none fixed top-0 left-0 w-20 aspect-square bg-red rounded-full flex px-4 justify-between z-[99999]">
+        <Image src={arrow} alt='arrow-left'/>
+        <Image src={arrow} alt='arrow-right'/>
+    </div>
+</section>
+
+<script>
+    // Swiper
+    import Swiper from 'swiper/bundle';
+
+    document.addEventListener('DOMContentLoaded', () => {
+        new Swiper('.swiper-gallery', {
+        slidesPerView: 1.5,
+        spaceBetween: 10,
+        breakpoints: {
+            769: {
+                slidesPerView: 3,
+                spaceBetween: 16,
+            }
+        }
+        });
+    });
+
+    // Handle cursor
+    let sliderCursor = document.querySelector('.slider-cursor') as HTMLElement;
+    const slider = document.querySelector('section.slider');
+    
+    const handleCursor = (e) => {
+        const insideBlock = slider.matches(':hover');
+
+        if(!sliderCursor)
+            sliderCursor = document.querySelector('.slider-cursor') as HTMLElement;
+        else {
+            sliderCursor.style.top = e.clientY - 40 + "px";
+            sliderCursor.style.left = e.clientX - 40 + "px";
+        }
+        
+        if(insideBlock)
+            sliderCursor.classList.add("visible");
+        else
+            sliderCursor?.classList.remove("visible");
+    }
+
+    document.addEventListener('mousemove', (e) => handleCursor(e));
+    document.addEventListener('scroll', (e) => handleCursor(e));
+</script>

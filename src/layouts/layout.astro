@@ -4,6 +4,7 @@ import '@/stylesheets/global.scss';
 
 import Header from '@/partials/header/Header.astro';
 import Footer from '@/partials/footer/Footer.astro';
+import Timeline from '@/components/blocks/timeline/timeline.astro';
 
 // Layout props
 const {
@@ -33,6 +34,7 @@ const {
   <!-- Contenuto principale -->
   <main class="flex-grow">
     <slot />
+    <Timeline/>
   </main>
 
   <!-- Inserisce direttamente il componente Footer -->

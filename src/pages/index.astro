@@ -1,5 +1,5 @@
 ---
-import './style.scss';
+import './stylesheets/index.scss';
 
 // Components
 import Layout from '@/layouts/Layout.astro';
@@ -11,16 +11,25 @@ import TruckScroll from '@/components/blocks/truck-scroll/truck-scroll.astro';
 import ImageBlock from '@/components/blocks/image/image.astro';
 import GradientTabSection from '@/components/blocks/gradient-tab-section/gradient-tab-section.astro';
 import Services from '@/components/blocks/services/services.astro';
+import StatsHome from '@/components/blocks/stats-home/stats-home.astro';
+import SostenibilitaText from '@/components/atoms/sostenibilita-text/sostenibilita-text.astro';
+import Slider from '@/components/blocks/slider/slider.astro';
+import SimpleText from '@/components/blocks/simple-text/simple-text.astro';
+import FeaturedNews from '@/components/blocks/featured-news/featured-news.astro';
 
-// Assets
-import heroImage from '@/assets/images/home/home-hero.webp';
-import bridgeImage from '@/assets/images/home/bridge.webp';
-import star from '@/assets/images/home/star.webp';
+// Assets - General
+import bridgeImg from '@/assets/images/home/bridge.webp';
+import expandingImg from '@/assets/images/home/image-expanding.webp';
+import featuredNewsImg from '@/assets/images/home/featured-news.webp';
 
 // Assets - Services
 import trasportoImg from '@/assets/images/svg/trasporto-merci-illustrazione.svg';
 import autogruImg from '@/assets/images/svg/trasporto-merci-illustrazione.svg';
 import logisticaImg from '@/assets/images/svg/trasporto-merci-illustrazione.svg';
+
+// Assets - Slider
+import slider1Img from '@/assets/images/home/slider-1.png';
+import slider2Img from '@/assets/images/home/slider-2.png';
 
 const services = [
     {
@@ -46,6 +55,37 @@ const services = [
     }
   ]
 
+const slides = [
+  {
+    image: slider1Img,
+    content: "",
+    editorName: "",
+    editorRole: "",
+    editorImage: "",
+  },
+  {
+    image: slider2Img,
+    content: "",
+    editorName: "",
+    editorRole: "",
+    editorImage: "",
+  },
+  {
+    image: slider1Img,
+    content: "",
+    editorName: "",
+    editorRole: "",
+    editorImage: "",
+  },
+  {
+    image: slider2Img,
+    content: "",
+    editorName: "",
+    editorRole: "",
+    editorImage: "",
+  },
+]
+
 ---
 
 <Layout
@@ -54,16 +94,16 @@ const services = [
   activeLink="home"
   bodyClass="home-page"
 >
+  
+  <HeroVideo
+    backgroundVideo="https://player.vimeo.com/video/449787858?autoplay=1&muted=1&background=1"
+  />
 
   <BlockTab 
     title="Da oltre 70 anni"
     content="Trasportiamo con cura, pensando al futuro di tutti"
     contentColor="green-light"
     backgroundColor="dark"
-  />
-  
-  <HeroVideo
-    backgroundVideo="https://player.vimeo.com/video/449787858?autoplay=1&muted=1&background=1"
   />
 
   <ScrollingText
@@ -82,7 +122,7 @@ const services = [
   />
 
   <ImageBlock
-    backgroundImage={bridgeImage}
+    backgroundImage={bridgeImg}
     backgroundImageAlt="bridge"
     headerColor="dark"
     hasTopFade="true"
@@ -97,7 +137,45 @@ const services = [
         ctaUrl="#"
         ctaStyle="primary-variant"
       />
+
+      <StatsHome/>
+
+      <SostenibilitaText/>
   </GradientTabSection>
 
-  <div class="bg-white py-20 relative z-10"></div>
+  <Slider
+    slides={slides}
+  />
+
+  <SimpleText
+    title="Il tuo futuro in movimento."
+    content="Scopri le opportunità di carriera e guida il tuo futuro con Valente Trasporti."
+    ctaLabel="Lavora con noi"
+    ctaUrl="#"
+    ctaStyle="primary-variant"
+  />
+
+  <ImageBlock
+    backgroundImage={expandingImg}
+    backgroundImageAlt="expanding-image"
+    headerColor="dark"
+    hasTopFade={false}
+    expanding="true"
+  />
+  
+  <SimpleText
+    bgColor="white"
+    title="Ti portiamo anche le novità!"
+    content="Resta aggiornato sulle ultime novità di Valente Trasporti: notizie, innovazioni e aggiornamenti sui servizi sostenibili e di logistica avanzata."
+    ctaLabel="Tutte le news"
+    ctaUrl="#"
+    ctaStyle="primary-variant"
+  />
+
+  <FeaturedNews
+    date="16 dicembre 2024"
+    excerpt="Lorem ipsum dolor sit amet, consectetur adipiscing elit eiusmod."
+    image={featuredNewsImg}
+  />
+
 </Layout>

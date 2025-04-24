@@ -1,0 +1,50 @@
+section.featured-news {
+    .truck {
+        @apply pt-6;
+    }
+
+    .news-inner {
+        transform: translateX(250vw);
+    }
+
+    &.animated {
+        .news-inner,
+        .truck {
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            animation-iteration-count: 1;
+            animation-fill-mode: forwards;
+        }
+
+        .news-inner {
+            animation-name: truck-animation-news;
+        }
+        .truck {
+            animation-name: truck-animation-truck;
+        }
+    }
+}
+
+@keyframes truck-animation-news {
+    0% {
+        transform: translateX(250vw);
+    }
+    60% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes truck-animation-truck {
+    0% {
+        transform: translateX(0);
+    }
+    60% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-167vw);
+    }
+}

@@ -1,0 +1,31 @@
+---
+import './style.scss';
+
+import Button from '@/components/atoms/button/button.astro';
+
+const {
+    title,
+    content,
+    textColor,
+    ctaLabel,
+    ctaUrl,
+    ctaStyle="primary",
+    borderColor,
+} = Astro.props;
+---
+
+<div class={`framed-content p-4 md:p-6 pb-0 border-[${borderColor}] border border-b-transparent`}>
+    {title && (
+        <h2 class={`title text-${textColor} mb-[56px] md:mb-20`}>{title}</h2>
+    )}
+    {content && (
+        <p class={`content text-${textColor} mb-[44px] md:mb-[56px]`}>{content}</p>
+    )}
+    {ctaLabel && ctaUrl && (
+        <Button
+            label={ctaLabel}
+            url={ctaUrl}
+            style={ctaStyle}
+        />
+    )}
+</div>

@@ -1,0 +1,159 @@
+---
+import './stylesheets/servizi-categoria.scss';
+
+import Layout from '../layouts/Layout.astro';
+
+// Components
+import PageIntro from '@/components/blocks/page-intro/page-intro.astro';
+import BlockTab from '@/components/atoms/block-tab/block-tab.astro';
+import ServiceCategoryIntro from '@/components/blocks/service-category-intro/service-category-intro.astro';
+import ImageBlock from '@/components/blocks/image/image.astro';
+import Services from '@/components/blocks/services/services.astro';
+import SostenibilitaText from '@/components/atoms/sostenibilita-text/sostenibilita-text.astro';
+import ScrollingText from '@/components/blocks/scrolling-text/scrolling-text.astro';
+import GradientTabSection from '@/components/blocks/gradient-tab-section/gradient-tab-section.astro';
+import Slider from '@/components/blocks/slider/slider.astro';
+import SimpleText from '@/components/blocks/simple-text/simple-text.astro';
+
+// Assets - General
+import expandingImg from '@/assets/images/home/image-expanding.webp';
+
+// Assets - Services
+import trasportoImg from '@/assets/images/svg/trasporto-merci-illustrazione.svg';
+
+// Assets - Slider
+import slider1Img from '@/assets/images/home/slider-1.png';
+import slider2Img from '@/assets/images/home/slider-2.png';
+
+const introFramedContent = [
+  {
+    title:"Trasporti a carico completo",
+    content:"Servizio di trasporto a carico completo in Italia ed Europa con bilici da 13,60m dotati di sistemi alza/abbassa e copri/scopri. Ideale per carichi voluminosi fino a 3m di altezza e 33 pallet standard, garantendo efficienza e soluzioni logistiche personalizzate.",
+      ctaLabel:"vai al servizio",
+      ctaUrl:"#"
+  },
+  {
+      title:"Distribuzione pallettizzata",
+      content:"Servizio di distribuzione pallettizzata con furgoni e motrici centinate, disponibili anche con sponda idraulica. Consegne rapide di scatole, pallet singoli o multipli in 24/48/72 ore su tutto il territorio nazionale, garantendo puntualità ed efficienza logistica.",
+      ctaLabel:"vai al servizio",
+      ctaUrl:"#"
+  },
+  {
+      title:"Trasporti espressi",
+      content:"Consegne espresse door-to-door in Italia ed Europa con furgoni dedicati per spedizioni urgenti. Tempi minimi grazie a mezzi agili e versatili, perfetti per emergenze logistiche e trasporti diretti verso qualsiasi destinazione.",
+      ctaLabel:"vai al servizio",
+      ctaUrl:"#"
+  }
+]
+
+
+const services = [
+    {
+      name: "Autogru",
+      description: "SERVIZI 2 di trasporto merci con bilici, motrici e furgoni. La nostra flotta comprende mezzi centinati, aperti e furgonati, ideali per il trasporto di",
+      url: "url 2",
+      image: trasportoImg,
+      imageAlt: "autogru",
+    },
+    {
+      name: "Logistica e deposito",
+      description: "SERVIZI 3 di trasporto merci con bilici, motrici e furgoni. La nostra flotta comprende mezzi centinati, aperti e furgonati, ideali per il trasporto di merci standard, eccezionali e ADR. Affidabilità e flessibilità per ogni esigenza logistica. merci standard, eccezionali e ADR. Affidabilità e flessibilità per ogni esigenza logistica. merci standard, eccezionali e ADR. Affidabilità e flessibilità per ogni esigenza logistica.",
+      url: "url 3",
+      image: trasportoImg,
+      imageAlt: "logistica",
+    }
+  ]
+
+const slides = [
+  {
+    image: slider1Img,
+    content: "",
+    editorName: "",
+    editorRole: "",
+    editorImage: "",
+  },
+  {
+    image: slider2Img,
+    content: "",
+    editorName: "",
+    editorRole: "",
+    editorImage: "",
+  },
+  {
+    image: slider1Img,
+    content: "",
+    editorName: "",
+    editorRole: "",
+    editorImage: "",
+  },
+  {
+    image: slider2Img,
+    content: "",
+    editorName: "",
+    editorRole: "",
+    editorImage: "",
+  },
+]
+---
+
+<Layout
+  title="Astro Tailwind - Servizi"
+  description="Scopri la nostra gamma completa di servizi di trasporto e logistica."
+  activeLink="servizi">
+
+  <PageIntro
+
+  />
+
+
+  <BlockTab 
+    title="Trasporto merci"
+    content="Altri servizi di Trasporto Merci"
+    contentColor="red"
+    backgroundColor="black"
+  />
+
+  <ServiceCategoryIntro 
+    categoryTitle="Trasporto Merci"
+    framedContent={introFramedContent}
+  />
+
+  <ImageBlock
+    backgroundImage={expandingImg}
+    backgroundImageAlt="expanding-image"
+    headerColor="dark"
+    hasTopFade={false}
+    expanding="true"
+  />
+
+  <Services
+    services={services}
+  />
+
+  <GradientTabSection>
+      <ScrollingText
+        content="Riduciamo l'impatto, miglioriamo il futuro: un viaggio alla volta"
+        hasTab=true
+        bgColor="transparent"
+        ctaLabel="il nostro report di sostenibilità"
+        ctaUrl="#"
+        ctaStyle="primary-variant"
+      />
+
+      <SostenibilitaText/>
+  </GradientTabSection>
+
+  <Slider
+    slides={slides}
+  />
+  
+  <SimpleText
+    bgColor="light"
+    title="Il tuo futuro in movimento."
+    content="Scopri le opportunità di carriera e guida il tuo futuro con Valente Trasporti."
+    ctaLabel="Lavora con noi"
+    ctaUrl="#"
+    ctaStyle="primary-variant"
+  />
+
+</Layout>

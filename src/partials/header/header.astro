@@ -14,7 +14,7 @@ const menuLeftSubsections = [
     subpages: [
       {
         title: 'Trasporti a carico completo',
-        url: '#'
+        url: '/servizi-categoria'
       },
       {
         title: 'Distribuzione pallettizzata',
@@ -102,18 +102,18 @@ const menuRightSubsections = [
 
 ---
 
-<header class="fixed w-full z-[9999] transition-all duration-300 lg:my-6 h-[60px] dark" id="main-header">
+<header class="fixed w-full z-[999999] transition-all duration-300 lg:my-6 h-[60px] dark" id="main-header">
   <div class="flex justify-between items-center h-full">
-    <a class="logo relative h-4 lg:h-10 w-[110px] lg:w-[140px] ml-5 lg:ml-12 mr-auto flex items-center" href="#">
+    <a class="logo relative h-4 lg:h-10 w-[110px] lg:w-[140px] ml-5 lg:ml-12 mr-auto flex items-center" href="/">
       <Image src={logoDark} alt="logo" class='logo-dark absolute top-0 left-0 w-full h-full'/>
       <Image src={logoLight} alt="logo" class='logo-light absolute top-0 left-0 w-full h-full'/>
     </a>
     <div class="navigation h-full flex gap-x-[55px] lg:gap-x-[70px]">
-      <a href="#" class="button relative section-red bg-red text-white font-button h-full px-3 lg:px-5 flex items-center uppercase">
+      <a href="/" class="button relative section-red bg-red text-white font-button h-full px-3 lg:px-5 flex items-center uppercase">
         <p class="hidden lg:block">Richiedi un preventivo</p>
         <Image src={headset} alt="logo" class='h-5 w-5 lg:hidden'/>
       </a>
-      <div href="#" class="flex relative section-menu items-center gap-x-14 text-white font-button h-full pr-5 pl-3 lg:pl-5 flex items-center lg:pr-12">
+      <div class="flex relative section-menu items-center gap-x-14 text-white font-button h-full pr-5 pl-3 lg:pl-5 flex items-center lg:pr-12">
         <button id="menu-hamburger" class="menu-hamburger h-5 relative w-20">
           <div class="hamburger-line"></div>
           <div class="hamburger-line"></div>
@@ -126,6 +126,7 @@ const menuRightSubsections = [
     </div>
   </div>
 
+  <!-- HEADER MENU -->
   <div id="header-menu" class="fixed top-0 right-0 h-full -z-10 overflow-hidden">
     <div class="header-menu-inner absolute top-0 right-0 bg-green-light w-screen h-full">
       <div class="max-lg:flex flex-col max-lg:px-5 md:max-h-[840px] grid-container w-full h-full max-lg:max-h-[calc(100%-200px)] overflow-auto max-lg:mt-[100px] lg:pt-[188px] pb-[90px]">

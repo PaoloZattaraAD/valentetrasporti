@@ -1,5 +1,15 @@
 .block-tab {
+    top: 80vw;
+
+    @media (min-width:769px) {
+        top: 40vw;
+    }
+
     .block-tab-inner {
+
+        @media (min-width:769px) {
+            min-height: 160px;
+        }
 
         &::before {
             content: '';
@@ -31,5 +41,22 @@
                 background-color: var(--color-dark);
             }
         }
+        &.bg-black {
+            &::after,
+            &::before {
+                background-color: #000;
+            }
+        }
+    }
+
+    p {
+        max-width: 395px;
+    }
+}
+
+.hero {
+    +.block-tab {
+        top: 100vh !important;
+        bottom: auto;
     }
 }

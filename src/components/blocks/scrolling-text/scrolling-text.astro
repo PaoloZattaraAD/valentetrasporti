@@ -15,9 +15,9 @@ const {
 
 const splitContent = content.split(/\s+/);
 ---
-<section class=`scrolling-text relative bg-${bgColor} ${headerLight ? 'header-light' : 'header-dark'} z-10`>
+<section class=`scrolling-text relative bg-${bgColor} ${headerLight ? 'header-light' : 'header-dark'} z-10 pb-md md:pb-lg`>
     <div class="grid-container">
-        <div class=`content col-start-3 col-end-12 pb-[160px] ${hasTab ? 'max-md:pt-6 md:-mt-[120px]' : 'md:pt-[160px]'}`>
+        <div class=`content col-start-3 col-end-12 ${hasTab ? 'max-md:pt-6 md:-mt-[120px]' : 'md:pt-lg'}`>
             <div class="content-text flex flex-wrap gap-x-3 md:gap-x-6 pt-4 md:pt-0 pb-14 md:pb-20">
                 {splitContent.map((word, id) => (
                     <span 

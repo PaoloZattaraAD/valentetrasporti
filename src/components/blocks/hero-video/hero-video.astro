@@ -1,12 +1,15 @@
 ---
 import './style.scss';
 
+import TimelineDot from '@/components/atoms/timeline-dot/timeline-dot.astro';
+
 const {
-  backgroundVideo
+  backgroundVideo,
+  backgroundVideoMobile
 } = Astro.props;
 ---
 
-<section class="hero w-screen h-screen header-dark">
+<section class="hero max-w-full w-screen h-screen header-dark relative">
     <div class="fixed hero-inner w-full h-full -z-10">
         <iframe
             src={backgroundVideo}
@@ -14,7 +17,20 @@ const {
             height="360"
             allow="autoplay; fullscreen; picture-in-picture"
             allowfullscreen
-            class="w-full h-full"
+            class=`w-full h-full ${backgroundVideoMobile ? 'max-md:hidden' : ''}`
       ></iframe>
+      {backgroundVideoMobile && (
+        <iframe
+            src={backgroundVideoMobile}
+            width="640"
+            height="360"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+            class="w-full h-full md:hidden"
+      ></iframe>
+      )}
     </div>
+    <TimelineDot
+      top="45%"
+    />
 </section>

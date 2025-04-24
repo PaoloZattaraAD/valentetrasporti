@@ -1,0 +1,26 @@
+---
+---
+
+<div class="timeline-container absolute top-0 left-0 right-0 bottom-0 z-[99999] pointer-events-none">
+    <div id="timeline" class="timeline absolute top-[9px] right-[9px] w-[2px] bg-white z-[99999] left-[calc(8.333vw+12px)] md:left-[calc(72px+8.333vw)] mix-blend-difference opacity-20"></div>
+</div>
+
+<script>
+    const calculateLineHeight = () => {
+        setTimeout(() => {
+            const line = document.getElementById('timeline') as HTMLElement;
+            const dots = document.querySelectorAll('.timeline-dot');
+
+            if(line && dots.length > 0) {
+                const firstDot = dots[0];
+                const footer = document.querySelector('footer');
+
+                line.style.top = (firstDot.getBoundingClientRect().top + window.scrollY + 9) + "px";
+                line.style.height = ((footer.getBoundingClientRect().top - firstDot.getBoundingClientRect().top) - 9) + "px";
+            }
+        }, 500);
+    }
+
+    document.addEventListener('DOMContentLoaded', calculateLineHeight);
+    document.addEventListener('resize', calculateLineHeight);
+</script>

@@ -1,0 +1,30 @@
+---
+import './style.scss';
+
+import Button from '@/components/atoms/button/button.astro';
+
+const {
+    bgColor='light',
+    title,
+    content,
+    ctaLabel,
+    ctaUrl,
+    ctaStyle
+} = Astro.props;
+---
+
+<section class=`simple-text bg-${bgColor} header-dark`>
+    <div class="grid-container">
+        <div class="content col-start-3 col-end-13 md:col-end-8">
+            <h2 class="mb-6">{title}</h2>
+            <p class="h5 mb-[52px]">{content}</p>
+            {ctaLabel && ctaUrl && (
+                <Button
+                    label={ctaLabel}
+                    url={ctaUrl}
+                    style={ctaStyle}
+                />
+            )}
+        </div>
+    </div>
+</section>

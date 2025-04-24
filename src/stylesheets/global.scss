@@ -37,7 +37,7 @@ $font-size-mobile: (
         #{$tag}, .#{$tag} {
             font-size: list.nth($size, 1);
             line-height: list.nth($size, 2);
-            font-weight: 300;
+            font-weight: 200;
         }
     }
 }
@@ -65,4 +65,16 @@ $font-size-mobile: (
 
 .grid-container {
     @apply w-full max-w-none px-5 md:px-12 grid grid-cols-12 gap-x-2 md:gap-x-3 ;
+}
+
+section {
+  @apply pb-md md:pb-lg;
+}
+
+main>section:last-of-type {
+  padding-bottom: 176px;
+  
+  @media (min-width:769px) {
+    padding-bottom: 460px;
+  }
 }

@@ -3,6 +3,10 @@ export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
+      spacing: {
+        md: "96px",
+        lg: "160px",
+      },
       colors: {
         dark: 'var(--color-dark)',
         light: 'var(--color-light)',
@@ -24,8 +28,8 @@ export default {
     },
   },
   safelist: [
-    { pattern: /^text-(dark|light|red|green-light|green-dark|grey)$/ },
-    { pattern: /^bg-(dark|light|red|green-light|green-dark|grey)$/ },
+    { pattern: /^text-(dark|light|red|green-light|green-dark|grey-light|grey-dark)$/ },
+    { pattern: /^bg-(dark|light|red|green-light|green-dark|grey-light|grey-dark)$/ },
   ],
   plugins: [],
 }

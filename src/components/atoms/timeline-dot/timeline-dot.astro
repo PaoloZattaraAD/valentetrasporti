@@ -1,0 +1,11 @@
+---
+import './style.scss';
+
+const {
+    top,
+    isFirstDot=false
+} = Astro.props;
+---
+
+<div class="timeline-dot absolute col-start-3 left-[calc(63px+8.333vw)] backdrop-invert" style={`top: ${top}`}>
+</div>

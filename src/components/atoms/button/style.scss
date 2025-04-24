@@ -12,7 +12,8 @@ a.button {
             }
         }
     }
-    &.primary-variant:hover {
+    &.primary-variant:hover,
+    &.secondary-variant:hover {
         p {
             color: #fff;
         }
@@ -37,10 +38,23 @@ a.button {
             background-color: var(--color-red);
         }
     }
-    &.primary {
+    &.secondary,
+    &.secondary-variant {
+        &::before {
+            background-color: var(--color-grey-light);
+        }
+
+        .icon img {
+            filter: brightness(0)
+        }
+    }
+
+    &.primary,
+    &.secondary {
         @apply text-white;
     }
-    &.primary-variant {
+    &.primary-variant,
+    &.secondary-variant {
         @apply text-dark;
     }
 

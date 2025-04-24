@@ -1,0 +1,32 @@
+---
+import './style.scss';
+
+import { Image } from 'astro:assets';
+import Button from '@/components/atoms/button/button.astro';
+
+import truck from '@/assets/images/home/truck.webp';
+
+const {
+    date,
+    excerpt,
+    image
+} = Astro.props;
+---
+
+<section class="featured-news bg-white overflow-hidden">
+    <div class="grid-container">
+        <div class="news-inner relative col-start-3 col-end-13">
+            <div class="truck absolute right-[calc(100%+24px)] w-full top-0">
+                <Image src={truck} alt="truck"/>
+            </div>
+            <Image src={image} alt='news-image' class="rounded-lg md:rounded-2xl mb-6"/>
+            <h6 class="font-mono opacity-50 mb-4">{date}</h6>
+            <p class="font-bold mb-6">{excerpt}</p>
+            <Button
+                url="#"
+                label="Leggi"
+                style="secondary-variant"
+            />
+        </div>
+    </div>
+</section>
