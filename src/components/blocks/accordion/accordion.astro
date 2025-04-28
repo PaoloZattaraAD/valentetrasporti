@@ -1,0 +1,69 @@
+---
+import { Image } from "astro:assets";
+
+import AccordionElement from "@/components/atoms/accordion-element/accordion-element.astro"
+
+import accordionTab from '@/assets/images/svg/accordion-tab.svg';
+
+const {
+    accordionElements = [
+        {
+            title:"",
+            image:null,
+            content:""
+        }
+    ]
+} = Astro.props;
+---
+
+<section class="accordion bg-light">
+    <div class="accordion-tab-top w-screen">
+        <Image src={accordionTab} alt="accordion-tab" class="max-w-[50%] md:w-[calc(16.667vw+24px)]"/>
+    </div>
+    <div class="grid-container bg-white py-md">
+        <div class="accordion-inner col-start-3 col-end-13">
+            {accordionElements.map(element => (
+                <AccordionElement
+                    title={element.title}
+                    image={element.image}
+                    content={element.content}
+                />
+            ))}
+        </div>
+    </div>
+    <div class="accordion-tab-bottom w-screen flex justify-end">
+        <Image src={accordionTab} alt="accordion-tab" class="scale-[-1] max-w-[50%] md:w-[calc(16.667vw+24px)]"/>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const accordionElements = document.querySelectorAll('.accordion-element');
+
+        accordionElements.forEach(element => {
+            element.addEventListener('click', () => {
+                if(element.classList.contains('open'))
+                    CloseAccordionElement(element);
+                else
+                    OpenAccordionElement(element);
+            })
+        })
+    })
+
+    function OpenAccordionElement (element) {
+        element.classList.add('open');
+
+        const container = element.querySelector('.content');
+        const content = element.querySelector('.content>div') as HTMLElement;
+
+        container.style.height = content.getBoundingClientRect().height + 'px';
+    }
+
+    function CloseAccordionElement (element) {
+        element.classList.remove('open');
+
+        const container = element.querySelector('.content');
+
+        container.style.height = 0;
+    }
+</script>

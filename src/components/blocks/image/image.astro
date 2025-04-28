@@ -9,16 +9,18 @@ const {
   backgroundImageAlt,
   headerColor,
   hasTopFade = false,
+  bottomSpaceColor
 } = Astro.props;
 ---
 
-<section class={`image w-screen bg-white max-w-full overflow-hidden header-${headerColor} ${expanding ? 'expanding h-[calc(100vh+160px)]' : 'h-[calc(100vh+280px)]'}`}>
-    <div class=`image-container bg-light h-full ${expanding ? '-mx-2 md:-mx-4' : ''}`>
+<section class={`image w-screen bg-white max-w-full overflow-hidden header-${headerColor} ${expanding ? 'expanding min-h-[calc(100vh+160px)]' : 'h-[calc(100vh+280px)]'}`}>
+    <div class=`image-container bg-light h-full ${expanding ? '-mx-2 md:-mx-4 min-h-[100vh]' : ''}`>
         <figure class="w-full h-full relative">
             { hasTopFade && (
                 <div class={`absolute top-0 left-0 right-0 h-[200px] top-fade`}></div>
             )}
-            <Image src={backgroundImage} alt={backgroundImageAlt} class=`w-full h-full object-cover ${expanding ? 'rounded-lg md:rounded-2xl' : ''}`/>
+            <Image src={backgroundImage} alt={backgroundImageAlt} class=`w-full h-full object-cover ${expanding ? 'min-h-[100vh] rounded-lg md:rounded-2xl' : ''}`/>
         </figure>
     </div>
+    <div class=`bg-${bottomSpaceColor} pb-lgMobile md:pb-lg`></div>
 </section>

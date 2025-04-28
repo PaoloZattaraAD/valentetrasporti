@@ -1,0 +1,231 @@
+---
+import './stylesheets/servizio.scss';
+
+import Layout from '../layouts/Layout.astro';
+
+// Components
+import PageIntro from '@/components/blocks/page-intro/page-intro.astro';
+import BlockTab from '@/components/atoms/block-tab/block-tab.astro';
+import ImageBlock from '@/components/blocks/image/image.astro';
+import Services from '@/components/blocks/services/services.astro';
+import SostenibilitaText from '@/components/atoms/sostenibilita-text/sostenibilita-text.astro';
+import ScrollingText from '@/components/blocks/scrolling-text/scrolling-text.astro';
+import Slider from '@/components/blocks/slider/slider.astro';
+import SimpleText from '@/components/blocks/simple-text/simple-text.astro';
+import ServiceIntro from '@/components/blocks/service-intro/service-intro.astro';
+import VehicleInspector from '@/components/blocks/vehicle-inspector/vehicle-inspector.astro';
+
+// Assets - General
+import expandingImg from '@/assets/images/home/image-expanding.webp';
+import introImg from '@/assets/images/trasporto-merci/trasporto-merci-header-desk.webp';
+import introImgMobile from '@/assets/images/trasporto-merci/trasporto-merci-header-mobile.webp';
+
+// Assets - Services
+import trasportoImg from '@/assets/images/svg/trasporto-merci-illustrazione.svg';
+
+// Assets - Slider
+import slider1Img from '@/assets/images/home/slider-1.png';
+import slider2Img from '@/assets/images/home/slider-2.png';
+
+const introFramedContent = [
+  {
+    title:"Trasporti a carico completo",
+    content:"Con oltre 70 anni nel settore, Valente Trasporti garantisce soluzioni di trasporto merci precise e personalizzate. La lunga tradizione ci permette di affrontare ogni incarico con competenza e affidabilità, superando le aspettative dei clienti.",
+  },
+  {
+      title:"Distribuzione pallettizzata",
+      content:"I nostri servizi si adattano a qualsiasi esigenza logistica. Grazie a una flotta versatile e a un team qualificato, siamo in grado di gestire trasporti nazionali e internazionali con rapidità ed efficienza.",
+  },
+  {
+      title:"Trasporti espressi",
+      content:"Offriamo trasporti di carichi completi, ottimizzando spazio e sicurezza. I nostri veicoli sono ideali per merci voluminose o pesanti, garantendo consegne puntuali e senza intoppi.",
+  }
+]
+
+
+const services = [
+    {
+      name: "Autogru",
+      description: "SERVIZI 2 di trasporto merci con bilici, motrici e furgoni. La nostra flotta comprende mezzi centinati, aperti e furgonati, ideali per il trasporto di",
+      url: "url 2",
+      image: trasportoImg,
+      imageAlt: "autogru",
+    },
+    {
+      name: "Logistica e deposito",
+      description: "SERVIZI 3 di trasporto merci con bilici, motrici e furgoni. La nostra flotta comprende mezzi centinati, aperti e furgonati, ideali per il trasporto di merci standard, eccezionali e ADR. Affidabilità e flessibilità per ogni esigenza logistica. merci standard, eccezionali e ADR. Affidabilità e flessibilità per ogni esigenza logistica. merci standard, eccezionali e ADR. Affidabilità e flessibilità per ogni esigenza logistica.",
+      url: "url 3",
+      image: trasportoImg,
+      imageAlt: "logistica",
+    }
+  ]
+
+const slides = [
+  {
+    image: slider1Img,
+    content: "",
+    authorName: "",
+    authorRole: "",
+    authorImage: "",
+  },
+  {
+    image: slider2Img,
+    content: "",
+    authorName: "",
+    authorRole: "",
+    authorImage: "",
+  },
+  {
+    image: slider1Img,
+    content: "",
+    authorName: "",
+    authorRole: "",
+    authorImage: "",
+  },
+  {
+    image: slider2Img,
+    content: "",
+    authorName: "",
+    authorRole: "",
+    authorImage: "",
+  },
+]
+
+const vehicles = [
+  {
+    vehicleName:'Bilico',
+    veihcleModelPath:'../../public/assets/models/Duck/Duck.glb',
+    size:[
+      'Lunghezza interna utile semirimorchio 13,60m',
+      'Larghezza interna utile semirimorchio 2,49m',
+      'Altezza interna utile semirimorchio 2,75m'
+    ],
+    data:[
+      'Portata utile 30 ton',
+      'Classe Euro 6',
+      'Alimentazione con motore termico da biocarburante HVO'
+    ],
+    characteristics:[
+      'Tutti i mezzi sono dotati di sistema GPS satellitare',
+      'Bilico centinato copri scopri alza abbassa con piantoni angolari allargabili per carico macchinari larghezza 2,5m',
+      'Disponibilità di cinghie e barre ferma-carico per la messa in sicurezza della merce'
+    ],
+    services:[
+      'Servizio fiere.Rispetto degli orari di consegna e ritiro tassativi',
+      'Assicurazione all-risk a copertura di eventuali danni o furti alla merce trasportata',
+      'Personale disponibile in qualsiasi momento per avere informazioni sul viaggio'
+    ]
+  },
+  {
+    vehicleName:'Furgone',
+    veihcleModelPath:'../../public/assets/models/Duck/Duck.glb',
+    size:[
+      'Lunghezza interna utile semirimorchio 13,60m',
+      'Larghezza interna utile semirimorchio 2,49m',
+      'Altezza interna utile semirimorchio 2,75m'
+    ],
+    data:[
+      'Portata utile 30 ton',
+      'Classe Euro 6',
+      'Alimentazione con motore termico da biocarburante HVO'
+    ],
+    characteristics:[
+      'Tutti i mezzi sono dotati di sistema GPS satellitare',
+      'Bilico centinato copri scopri alza abbassa con piantoni angolari allargabili per carico macchinari larghezza 2,5m',
+      'Disponibilità di cinghie e barre ferma-carico per la messa in sicurezza della merce'
+    ],
+    services:[
+      'Servizio fiere.Rispetto degli orari di consegna e ritiro tassativi',
+      'Assicurazione all-risk a copertura di eventuali danni o furti alla merce trasportata',
+      'Personale disponibile in qualsiasi momento per avere informazioni sul viaggio'
+    ]
+  },
+  {
+    vehicleName:'Furgoncino',
+    veihcleModelPath:'../../public/assets/models/Duck/Duck.glb',
+    size:[
+      'Lunghezza interna utile semirimorchio 13,60m',
+      'Larghezza interna utile semirimorchio 2,49m',
+      'Altezza interna utile semirimorchio 2,75m'
+    ],
+    data:[
+      'Portata utile 30 ton',
+      'Classe Euro 6',
+      'Alimentazione con motore termico da biocarburante HVO'
+    ],
+    characteristics:[
+      'Tutti i mezzi sono dotati di sistema GPS satellitare',
+      'Bilico centinato copri scopri alza abbassa con piantoni angolari allargabili per carico macchinari larghezza 2,5m',
+      'Disponibilità di cinghie e barre ferma-carico per la messa in sicurezza della merce'
+    ],
+    services:[
+      'Servizio fiere.Rispetto degli orari di consegna e ritiro tassativi',
+      'Assicurazione all-risk a copertura di eventuali danni o furti alla merce trasportata',
+      'Personale disponibile in qualsiasi momento per avere informazioni sul viaggio'
+    ]
+  },
+]
+---
+
+<Layout
+  title="Astro Tailwind - Servizi"
+  description="Scopri la nostra gamma completa di servizi di trasporto e logistica."
+  activeLink="servizi">
+
+  <PageIntro
+    headerColor="light"
+    bgImage={introImg}
+    bgImageMobile={introImgMobile}
+  />
+
+  <ScrollingText 
+    content="Da sempre il fiore all'occhiello dell'azienda, il carico completo ne rappresenta il core business."
+    contentColor="dark"
+    hasTab={false}
+    headerColor="dark"
+    bgColor="light"
+  />
+
+  <BlockTab 
+    title="Trasporto merci"
+    titleColor="dark"
+    content="Trasporti a carico completo"
+    contentColor="red"
+    backgroundColor="light"
+  />
+
+  <ServiceIntro 
+    framedContent={introFramedContent}
+  />
+
+  <ImageBlock
+    backgroundImage={expandingImg}
+    backgroundImageAlt="expanding-image"
+    headerColor="dark"
+    hasTopFade={false}
+    expanding="true"
+    bottomSpaceColor="light"
+  />
+  
+  <SimpleText
+    bgColor="light"
+    title="Caratteristiche"
+    content="Con il servizio bilici si effettuano molteplici tipologie di trasporto merci: pallet, macchinari, carpenteria, tavole…fino ad un peso massimo di 300 quintali."
+    ctaLabel="Richiedi un preventivo"
+    ctaUrl="#"
+    ctaStyle="primary-variant"
+  />
+
+  <VehicleInspector 
+    vehicles={vehicles}
+  />
+
+  <Slider
+    imageOnly={true}
+    slides={slides}
+  />
+
+  <Services
+    services={services}
+  />
+</Layout>

@@ -17,6 +17,8 @@ import SimpleText from '@/components/blocks/simple-text/simple-text.astro';
 
 // Assets - General
 import expandingImg from '@/assets/images/home/image-expanding.webp';
+import introImg from '@/assets/images/trasporto-merci/trasporto-merci-header-desk.webp';
+import introImgMobile from '@/assets/images/trasporto-merci/trasporto-merci-header-mobile.webp';
 
 // Assets - Services
 import trasportoImg from '@/assets/images/svg/trasporto-merci-illustrazione.svg';
@@ -68,30 +70,30 @@ const slides = [
   {
     image: slider1Img,
     content: "",
-    editorName: "",
-    editorRole: "",
-    editorImage: "",
+    authorName: "",
+    authorRole: "",
+    authorImage: "",
   },
   {
     image: slider2Img,
     content: "",
-    editorName: "",
-    editorRole: "",
-    editorImage: "",
+    authorName: "",
+    authorRole: "",
+    authorImage: "",
   },
   {
     image: slider1Img,
     content: "",
-    editorName: "",
-    editorRole: "",
-    editorImage: "",
+    authorName: "",
+    authorRole: "",
+    authorImage: "",
   },
   {
     image: slider2Img,
     content: "",
-    editorName: "",
-    editorRole: "",
-    editorImage: "",
+    authorName: "",
+    authorRole: "",
+    authorImage: "",
   },
 ]
 ---
@@ -102,7 +104,9 @@ const slides = [
   activeLink="servizi">
 
   <PageIntro
-
+    headerColor="light"
+    bgImage={introImg}
+    bgImageMobile={introImgMobile}
   />
 
 
@@ -133,8 +137,9 @@ const slides = [
   <GradientTabSection>
       <ScrollingText
         content="Riduciamo l'impatto, miglioriamo il futuro: un viaggio alla volta"
-        hasTab=true
+        hasTab={true}
         bgColor="transparent"
+        headerColor="dark"
         ctaLabel="il nostro report di sostenibilità"
         ctaUrl="#"
         ctaStyle="primary-variant"
@@ -144,6 +149,7 @@ const slides = [
   </GradientTabSection>
 
   <Slider
+    imageOnly={true}
     slides={slides}
   />
   

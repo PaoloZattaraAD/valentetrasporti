@@ -10,7 +10,7 @@ section.featured-news {
     &.animated {
         .news-inner,
         .truck {
-            animation-duration: 3s;
+            animation-duration: 4s;
             animation-timing-function: linear;
             animation-iteration-count: 1;
             animation-fill-mode: forwards;
@@ -23,7 +23,77 @@ section.featured-news {
             animation-name: truck-animation-truck;
         }
     }
+
+
+    // // TRUCK EDITING
+    // .news-inner {
+    //     transform: none !important;
+    // }
+
+    // .news-inner>img {
+    //     opacity: 0;
+    // }
+
+    // .truck {
+    //     transform: translateX(70vw) !important;
+    // }
+
+    // // TRUCK EDITING END
+
+    .wheel {
+        @apply absolute;
+
+        animation-name: wheelTurnBack;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+        animation-duration: 0.6s;
+
+        width: 7.2%;;
+        aspect-ratio: 1;
+
+        // front wheels
+        &-1 {
+            left: 4.8%;
+            bottom: -7.6%;
+            transform-origin: calc(50% + 1px) 50%;
+            
+            img { transform: rotate(270deg); }
+        }
+        &-2 {
+            left: 27.9%;
+            bottom: -7.6%;
+
+            img { transform: rotate(60deg); }
+        }
+
+        // back wheels
+        &-3, &-4, &-5 {
+            bottom: -8.8%;
+        }
+        &-3 {
+            right: 30.1%;
+            img { transform: rotate(20deg); }
+        }
+        &-4 {
+            right: 22.8%;
+            img { transform: rotate(200deg); }
+        }
+        &-5 {
+            right: 15.6%;
+            img { transform: rotate(120deg); }
+        }
+    }
 }
+
+@keyframes wheelTurnBack {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
 
 @keyframes truck-animation-news {
     0% {

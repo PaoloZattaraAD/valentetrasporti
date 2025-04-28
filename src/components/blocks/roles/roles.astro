@@ -1,0 +1,33 @@
+---
+import './style.scss';
+
+import AccordionElement from "@/components/atoms/accordion-element/accordion-element.astro"
+
+import accordionTab from '@/assets/images/svg/accordion-tab.svg';
+
+const {
+    roles = [
+        {
+            title:"",
+            image:null,
+            content:""
+        }
+    ]
+} = Astro.props;
+
+---
+
+<section class="roles relative bg-light">
+    <div class="grid-container">
+        <div class="col-start-3 col-end-13">
+            {roles.map(role => (
+                <AccordionElement
+                    title={role.title}
+                    image={role.image}
+                    content={role.content}
+                    isRole={false}
+                />
+            ))}
+        </div>
+    </div>
+</section>

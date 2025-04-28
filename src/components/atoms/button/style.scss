@@ -4,14 +4,26 @@ a.button {
             right: -12px;
         }
 
-        .text {
-            margin-left: -12px;
+        &.primary,
+        &.primary-variant,
+        &.secondary,
+        &.secondary-variant {
+            .text {
+                margin-left: -12px;
 
-            p {
-                color: var(--color-dark);
+                p {
+                    color: var(--color-dark);
+                }
+            }
+        }
+
+        &.download-button {
+            .text img {
+                filter: brightness(20);
             }
         }
     }
+
     &.primary-variant:hover,
     &.secondary-variant:hover {
         p {
@@ -48,6 +60,22 @@ a.button {
             filter: brightness(0)
         }
     }
+    &.tertiary,
+    &.tertiary-variant,
+    &.download-button {
+        p {
+            transition: all ease-in-out 0.3s;
+        }
+        &:hover {
+            .text {
+                background-color: var(--color-dark);
+                
+                p {
+                    color: #fff;
+                }
+            }
+        }
+    }
 
     &.primary,
     &.secondary {
@@ -58,15 +86,24 @@ a.button {
         @apply text-dark;
     }
 
-    .text {
+    .text ,
+    .text img{
         transition: all 0.3s ease-in-out;
     
         p {
             font-size: 13px;
             line-height: 1;
         
-            @media (min-width:768px) {
+            @media (min-width:769px) {
                 font-size: 16px;
+            }
+        }
+    }
+
+    &.download-button {
+        .text p {
+            @media (max-width:768px) {
+                display: none;
             }
         }
     }

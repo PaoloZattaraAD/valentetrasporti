@@ -11,21 +11,31 @@ const {
     ctaUrl,
     ctaStyle="primary",
     borderColor,
+    style
 } = Astro.props;
+
+const primary = style === "primary";
 ---
 
-<div class={`framed-content p-4 md:p-6 pb-0 border-[${borderColor}] border border-b-transparent`}>
+<div class={`framed-content p-4 md:p-6 !pb-0 border-${borderColor} border border-b-transparent flex flex-col`}>
     {title && (
-        <h2 class={`title text-${textColor} mb-[56px] md:mb-20`}>{title}</h2>
+        <>
+            {primary ? (
+                <h2 class={`title text-${textColor} mb-mdMobile md:mb-20`}>{title}</h2>
+            ) : (
+                <h6 class={`title font-mono text-red mb-mdMobile md:mb-20 uppercase`}>{title}</h6>
+            )}
+        </>
     )}
     {content && (
-        <p class={`content text-${textColor} mb-[44px] md:mb-[56px]`}>{content}</p>
+        <p class={`content text-${textColor}`}>{content}</p>
     )}
     {ctaLabel && ctaUrl && (
         <Button
             label={ctaLabel}
             url={ctaUrl}
             style={ctaStyle}
+            buttonClass="mt-auto"
         />
     )}
 </div>

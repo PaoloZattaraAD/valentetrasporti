@@ -14,11 +14,11 @@ const menuLeftSubsections = [
     subpages: [
       {
         title: 'Trasporti a carico completo',
-        url: '/servizi-categoria'
+        url: '/servizio'
       },
       {
         title: 'Distribuzione pallettizzata',
-        url: '#'
+        url: '/servizi-categoria'
       },
       {
         title: 'Trasporti espressi',
@@ -77,7 +77,7 @@ const menuRightSubsections = [
       },
       {
         title: 'Governance',
-        url: '#'
+        url: '/governance'
       },
     ] 
   },
@@ -90,11 +90,11 @@ const menuRightSubsections = [
       },
       {
         title: 'Lavora con noi',
-        url: '#'
+        url: '/lavora-con-noi'
       },
       {
         title: 'Download',
-        url: '#'
+        url: '/download'
       },
     ] 
   },
@@ -134,7 +134,7 @@ const menuRightSubsections = [
         <div class="menu-left col-start-4 col-span-4 flex flex-col max-lg:pb-11 max-lg:gap-y-6 lg:justify-between">
           {menuLeftSubsections.map((subsection) => (
             <div class="menu-left-subsection">
-              <h2 class="h4 lg:h2 text-white mb-4 lg:mb-6">{subsection.title}</h2>
+              <h2 class="text-white mb-4 lg:mb-6">{subsection.title}</h2>
               <div class="menu-subsection-subpages flex flex-col gap-y-2">
                 {subsection.subpages.map((subpage) => (
                   <div class="subpage flex gap-x-2 items-center">

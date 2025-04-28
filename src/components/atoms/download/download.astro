@@ -1,0 +1,20 @@
+---
+import './style.scss';
+
+import Button from '@/components/atoms/button/button.astro';
+
+const {
+    downloadLabel,
+    downloadFileUrl
+} = Astro.props;
+---
+
+<div class="download relative w-full flex justify-between py-4 md:py-6">
+    <h3 class="download-label">{downloadLabel}</h3>
+
+    <Button
+        label="download"
+        url={downloadFileUrl}
+        style="download-button"
+    />
+</div>

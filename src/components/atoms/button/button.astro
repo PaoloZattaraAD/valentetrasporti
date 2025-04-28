@@ -3,20 +3,31 @@ import './style.scss';
 
 import { Image } from 'astro:assets';
 import arrow from '@/assets/images/svg/arrow.svg';
+import download from '@/assets/images/svg/download.svg';
 
 const {
   label,
   url,
-  style
+  style,
+  buttonClass
 } = Astro.props;
+
+const downloadButton = style === 'download-button';
+const hasArrow = style !== "tertiary" && style !== "tertiary-variant" && !downloadButton;
+const variant = style.includes("-variant") || downloadButton;
 
 ---
 
-<a href={url} class=`button ${style} inline-flex relative min-w-0 items-center gap-x-3`>
-  <div class="icon z-10 h-10 aspect-square flex justify-center items-center py-[10px]">
-    <Image src={arrow} alt="arrow-svg h-full"/>
-  </div>
-  <div class="text h-10 z-10 flex items-center">
-    <p class=`font-button uppercase`>{label}</p>
+<a href={url} class=`button ${style} inline-flex relative min-w-0 items-center gap-x-3 ${buttonClass}`>
+  {hasArrow && (
+    <div class="icon z-10 h-10 aspect-square flex justify-center items-center py-[10px]">
+      <Image src={arrow} alt="arrow-svg"/>
+    </div>
+  )}
+  <div class=`text ${hasArrow ? 'h-10' : 'px-4 py-2 rounded'} ${downloadButton ? '!px-2 md:pl-3' : ''} ${!hasArrow ? (variant ? 'bg-light' : 'bg-white') : ''} z-10 flex items-center`>
+    {downloadButton && (
+      <Image src={download} alt="download-svg" class='md:mr-5 w-[16px] aspect-square'/>
+    )}
+    <p class=`${hasArrow ? 'font-button' : 'font-mono'} uppercase`>{label}</p>
   </div>
 </a>

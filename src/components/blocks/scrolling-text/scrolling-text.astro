@@ -5,9 +5,10 @@ import Button from '@/components/atoms/button/button.astro';
 
 const {
     content,
+    contentColor,
     hasTab,
     bgColor,
-    headerLight = false,
+    headerColor,
     ctaLabel = '',
     ctaUrl = '',
     ctaStyle = 'primary'
@@ -15,13 +16,13 @@ const {
 
 const splitContent = content.split(/\s+/);
 ---
-<section class=`scrolling-text relative bg-${bgColor} ${headerLight ? 'header-light' : 'header-dark'} z-10 pb-md md:pb-lg`>
+<section class=`scrolling-text relative bg-${bgColor} header-${headerColor} z-10 pb-lgMobile md:pb-lg`>
     <div class="grid-container">
         <div class=`content col-start-3 col-end-12 ${hasTab ? 'max-md:pt-6 md:-mt-[120px]' : 'md:pt-lg'}`>
-            <div class="content-text flex flex-wrap gap-x-3 md:gap-x-6 pt-4 md:pt-0 pb-14 md:pb-20">
+            <div class="content-text flex flex-wrap gap-x-3 md:gap-x-6 pt-lgMobile md:pt-0">
                 {splitContent.map((word, id) => (
                     <span 
-                    class="h1 text-white"
+                    class={`h1 text-${contentColor || 'white'}`}
                     >
                     {word}
                     </span>
@@ -33,6 +34,7 @@ const splitContent = content.split(/\s+/);
                     label={ctaLabel}
                     url={ctaUrl}
                     style={ctaStyle}
+                    buttonClass="mt-14 md:mt-20"
                 />
             )}
         </div>

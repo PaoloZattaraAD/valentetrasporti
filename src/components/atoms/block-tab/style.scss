@@ -1,8 +1,8 @@
 .block-tab {
-    top: 80vw;
+    top: 92vw;
 
     @media (min-width:769px) {
-        top: 40vw;
+        top: 33.333vw;
     }
 
     .block-tab-inner {
@@ -47,10 +47,27 @@
                 background-color: #000;
             }
         }
+        &.bg-light {
+            &::after,
+            &::before {
+                background-color: var(--color-light);
+            }
+        }
+        &.bg-white {
+            &::after,
+            &::before {
+                background-color: #fff;
+            }
+        }
     }
 
     p {
         max-width: 395px;
+
+        @media (max-width:768px) {
+            font-size: 14px;
+            line-height: 20px;
+        }
     }
 }
 

@@ -1,0 +1,7 @@
+@import '../../../stylesheets/global.scss';
+
+.role {
+    &::before {
+        @include gradient-border(top);
+    }
+}

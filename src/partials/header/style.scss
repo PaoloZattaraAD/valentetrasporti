@@ -206,6 +206,12 @@
 
         .menu-left-subsection,
         .menu-right-subsection {
+            h2 {
+                @media (max-width:1024px) {
+                    font-size: 22px;
+                    line-height: 28px;
+                }
+            }
             .subpage {
                 .dash {
                     opacity: 0;

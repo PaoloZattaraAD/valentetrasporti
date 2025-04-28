@@ -1,0 +1,27 @@
+---
+
+import './style.scss';
+
+import Button from '@/components/atoms/button/button.astro';
+
+const {
+    title,
+    content,
+    url
+} = Astro.props;
+
+---
+
+<div class="role py-4 md:py-6 border border-transparent relative">
+    <div class="flex max-md:flex-col items-start justify-between">
+        <div class="content md:max-w-[50%]">
+            <h3 class="mb-4 md:mb-6">{title}</h3>
+            <p class="max-md:mb-6" set:html={content}></p>
+        </div>
+        <Button
+            label="invia la candidatura"
+            url={url}
+            style="tertiary"
+        />
+    </div>
+</div>

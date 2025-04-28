@@ -1,0 +1,35 @@
+---
+import FramedContent from '@/components/atoms/framed-content/framed-content.astro';
+
+const {
+    framedContent = [
+        {
+            title: "",
+            content: "",
+            ctaLabel: "",
+            ctaUrl: ""
+        }
+    ]
+} = Astro.props;
+---
+
+<section class="service-intro relative bg-light header-dark">
+    <div class="grid-container">
+        <div class="content col-start-3 col-end-13">
+            <div class="framed-content-container flex max-md:flex-col">
+                {framedContent.map(singleFramedContent => (
+                    <FramedContent 
+                        title={singleFramedContent.title}
+                        content={singleFramedContent.content}
+                        ctaLabel={singleFramedContent.ctaLabel}
+                        ctaUrl={singleFramedContent.ctaLabel}
+                        style="secondary"
+                        borderColor="dark"
+                        textColor="dark"
+                        ctaStyle="primary"
+                    />
+                ))}
+            </div>
+        </div>
+    </div>
+</section>

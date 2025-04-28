@@ -1,0 +1,96 @@
+---
+import './style.scss';
+
+const {
+    vehicles = [
+        {
+            vehicleName:'',
+            veihcleModelPath:'',
+            size:[],
+            data:[],
+            characteristics:[],
+            services:[]
+        }
+    ]
+} = Astro.props;
+---
+
+<section class="vehicle-inspector bg-light md:pb-lg">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+    
+    <div class="grid-container">
+        <div class="inspector-inner col-start-3 col-end-13">
+            <div class="model-selector flex justify-between gap-x-[56px]">
+                {vehicles.map((vehicle, index) => (
+                    <h5 class={`model-selector-button relative grow pb-4 ${index === 0 ? 'selected' : ''} cursor-pointer`}>{vehicle.vehicleName}</h5>
+                ))}
+            </div>
+
+            {vehicles.map((vehicle, index) => (
+                <div class={`vehicle ${index !== 0 ? 'hidden' : ''}`}>
+                <model-viewer class="w-full aspect-[1.778] h-auto" alt="dukk" src={vehicle.veihcleModelPath} environment-image="../../public/assets/HDRIs/brown_photostudio_02_1k.hdr" shadow-intensity="1" camera-controls disable-zoom touch-action="pan-y"></model-viewer>
+
+                <div class='vehicle-info'>
+                    <div class="flex flex-col gap-y-[56px]">
+                        <div class="vehicle-size">
+                            <h5>Specifiche trattore e semirimorchio</h5>
+                            <div class="vehicle-info-inner">
+                            {vehicle.size.map((size, sizeIndex) => (
+                                <p>{size}</p>
+                            ))}
+                            </div>
+                        </div>
+                        <div class="vehicle-data">
+                            <h5>Dati utili</h5>
+                            <div class="vehicle-info-inner">
+                            {vehicle.data.map((data, sizeIndex) => (
+                                <p>{data}</p>
+                            ))}
+                            </div>
+                        </div>
+                        <div class="vehicle-characteristics">
+                            <h5>Caratteristiche</h5>
+                            <div class="vehicle-info-inner">
+                            {vehicle.characteristics.map((characteristic, sizeIndex) => (
+                                <p>{characteristic}</p>
+                            ))}
+                            </div>
+                        </div>
+                        <div class="vehicle-services">
+                            <h5>Servizi e garanzie</h5>
+                            <div class="vehicle-info-inner">
+                            {vehicle.services.map((service, sizeIndex) => (
+                                <p>{service}</p>
+                            ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            ))}
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const modelSelectorButtons = Array.from(document.querySelectorAll('.model-selector-button'));
+        const vehicles = document.querySelectorAll('.vehicle');
+        modelSelectorButtons.forEach(selectorButton => {
+                selectorButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = e.target as HTMLElement;
+
+                modelSelectorButtons.forEach(disableSelectorButton => {
+                    disableSelectorButton.classList.remove('selected');
+                })
+                vehicles.forEach(vehicle => {
+                    vehicle.classList.add('hidden');
+                })
+
+                target.classList.add('selected');
+                vehicles[modelSelectorButtons.indexOf(target)].classList.remove('hidden');
+            })
+        })
+    })
+</script>

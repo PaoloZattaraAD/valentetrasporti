@@ -1,0 +1,31 @@
+@import '../../../stylesheets/global.scss';
+
+section.vehicle-inspector {
+    .model-selector {
+        h5 {
+            &::before {
+                @include gradient-border(bottom);
+            }
+            &.selected {
+                border-bottom: 2px solid #000;
+            }
+        }
+    }
+
+    .vehicle-info {
+        h5 {
+            @apply pb-4 mb-6 relative;
+            &::before {
+                @include gradient-border(bottom);
+            }
+        }   
+
+        .vehicle-info-inner {
+            @apply flex gap-x-[56px];
+    
+            >* {
+                flex: 1;
+            }
+        }     
+    }
+}

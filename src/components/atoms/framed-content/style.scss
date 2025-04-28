@@ -1,11 +1,96 @@
-.framed-content {
-    min-width: 100%;
+.framed-content-container {
+    overflow-x: clip;
+    
+    .framed-content {
+        min-width: 100%;
 
-    &:not(:last-child) {
-        @apply max-md:mb-6;
+        &:not(:last-child) {
+            @apply max-md:mb-6;
+        }
+
+        &.animated {
+            @media (min-width:769px) {
+                p {
+                    width: 25vw;
+                }
+            }
+        }
+
+        @media (min-width:769px) {
+            min-width: 33.333%;
+        }
+
+        a.button {
+            margin-right: auto;
+            
+            p {
+                width: auto;
+            }
+        }
     }
 
     @media (min-width:769px) {
-        min-width: 30%;
+        &.animated {
+            .framed-content {
+                transition: min-width 0.3s ease-in-out;
+
+                a.button {
+                    opacity: 0;
+                    transition: opacity 0.3s ease-in-out;
+                }
+
+                p {
+                    position: relative;
+
+                    transition-property: top, opacity;
+                    transition-duration: 0.3s;
+                    transition-timing-function: ease-in-out;
+                }
+            }
+
+            &:not(:hover) {
+                .framed-content {
+                    min-width: 29%;
+                    >p { 
+                        opacity: 0; 
+                        top: 20px;
+                    }
+
+                    &:first-child {
+                        min-width: 42%;
+                        >p { 
+                            opacity: 1; 
+                            top: 0;
+                        }
+
+                        a.button {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+                .framed-content {
+                    min-width: 29%;
+                    >p { 
+                        opacity: 0; 
+                        top: 20px;
+                    }
+
+                    &:hover {
+                        min-width: 42%;
+                        p { 
+                            opacity: 1; 
+                            top: 0;
+                        }
+
+                        a.button {
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

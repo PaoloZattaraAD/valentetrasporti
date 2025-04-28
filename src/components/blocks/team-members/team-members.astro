@@ -1,0 +1,29 @@
+---
+import './style.scss';
+
+import { Image } from 'astro:assets';
+
+const {
+    members = [
+        {
+            memberImage:null,
+            memberRole:"",
+            memberName:""
+        }
+    ]
+} = Astro.props;
+---
+
+<section class="team-members bg-light header-dark">
+    <div class="grid-container">
+        <div class="team-members-inner col-start-3 col-end-13 md:flex gap-x-6">
+            {members.map(member => (
+                <div class="team-member max-md:mb-9 flex-grow">
+                    <Image src={member.memberImage} alt="member-image" class='w-full mb-6 md:mb-[52px] rounded-xl border border-white'/>
+                    <h6 class="font-mono mb-3 md:mb-6 uppercase opacity-50">{member.memberRole}</h6>
+                    <h4>{member.memberName}</h4>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

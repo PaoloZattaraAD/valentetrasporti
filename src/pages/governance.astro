@@ -1,0 +1,126 @@
+---
+import './stylesheets/governance.scss';
+
+// Components
+import Layout from '@/layouts/Layout.astro';
+import PageIntro from '@/components/blocks/page-intro/page-intro.astro';
+import BlockTab from '@/components/atoms/block-tab/block-tab.astro';
+import ScrollingText from '@/components/blocks/scrolling-text/scrolling-text.astro';
+import ImageBlock from '@/components/blocks/image/image.astro';
+import SimpleText from '@/components/blocks/simple-text/simple-text.astro';
+import TeamMembers from '@/components/blocks/team-members/team-members.astro';
+import Accordion from '@/components/blocks/accordion/accordion.astro';
+
+// Assets - General
+import introImg from '@/assets/images/trasporto-merci/trasporto-merci-header-desk.webp';
+import introImgMobile from '@/assets/images/trasporto-merci/trasporto-merci-header-mobile.webp';
+import bridgeImg from '@/assets/images/home/bridge.webp';
+
+// Assets - Services
+import trasportoImg from '@/assets/images/svg/trasporto-merci-illustrazione.svg';
+import autogruImg from '@/assets/images/svg/trasporto-merci-illustrazione.svg';
+import logisticaImg from '@/assets/images/svg/trasporto-merci-illustrazione.svg';
+
+// Assets - Members
+import member1 from '@/assets/images/governance/member-1.jpg';
+import member2 from '@/assets/images/governance/member-1.jpg';
+import member3 from '@/assets/images/governance/member-1.jpg';
+
+// Assets - Accordion
+import accordionImage from '@/assets/images/governance/accordion-image.jpg';
+
+const teamMembers = [
+  {
+    memberImage: member1,
+    memberRole: "Legale rappresentante",
+    memberName: "Enzo Valente"
+  },
+  {
+    memberImage: member2,
+    memberRole: "Responsabile commerciale",
+    memberName: "Riccardo Valente"
+  },
+  {
+    memberImage: member3,
+    memberRole: "Amministrazione e traffico",
+    memberName: "Giulio Valente"
+  }
+]
+
+const accordionElements = [
+    {
+      title: "Integrità e etica del business",
+      image: accordionImage,
+      content: 
+      '<p class="font-bold">Concorrenza leale</p><br>Valente Angelo S.A.S. aderisce alle regole del libero mercato, evitando comportamenti sleali e azioni contrarie alla concorrenza leale. Non intrattiene rapporti commerciali con soggetti condannati per pratiche di concorrenza sleale, garantendo così integrità e correttezza nel confronto tra operatori economici.'
+    },
+    {
+      title: "Integrità e etica del business",
+      image: accordionImage,
+      content: 
+      '<p class="font-bold">Concorrenza leale</p><br>Valente Angelo S.A.S. aderisce alle regole del libero mercato, evitando comportamenti sleali e azioni contrarie alla concorrenza leale. Non intrattiene rapporti commerciali con soggetti condannati per pratiche di concorrenza sleale, garantendo così integrità e correttezza nel confronto tra operatori economici.<br><br><p class="font-bold">Concorrenza leale</p><br>Valente Angelo S.A.S. aderisce alle regole del libero mercato, evitando comportamenti sleali e azioni contrarie alla concorrenza leale. Non intrattiene rapporti commerciali con soggetti condannati per pratiche di concorrenza sleale, garantendo così integrità e correttezza nel confronto tra operatori economici.<br><br><p class="font-bold">Concorrenza leale</p><br>Valente Angelo S.A.S. aderisce alle regole del libero mercato, evitando comportamenti sleali e azioni contrarie alla concorrenza leale. Non intrattiene rapporti commerciali con soggetti condannati per pratiche di concorrenza sleale, garantendo così integrità e correttezza nel confronto tra operatori economici.<br><br><p class="font-bold">Concorrenza leale</p><br>Valente Angelo S.A.S. aderisce alle regole del libero mercato, evitando comportamenti sleali e azioni contrarie alla concorrenza leale. Non intrattiene rapporti commerciali con soggetti condannati per pratiche di concorrenza sleale, garantendo così integrità e correttezza nel confronto tra operatori economici.<br><br><p class="font-bold">Concorrenza leale</p><br>Valente Angelo S.A.S. aderisce alle regole del libero mercato, evitando comportamenti sleali e azioni contrarie alla concorrenza leale. Non intrattiene rapporti commerciali con soggetti condannati per pratiche di concorrenza sleale, garantendo così integrità e correttezza nel confronto tra operatori economici.<br><br>'
+    },
+    {
+      title: "Integrità e etica del business",
+      image: accordionImage,
+      content: 
+      '<p class="font-bold">Concorrenza leale</p><br>Valente Angelo S.A.S. aderisce alle regole del libero mercato, evitando comportamenti sleali e azioni contrarie alla concorrenza leale. Non intrattiene rapporti commerciali con soggetti condannati per pratiche di concorrenza sleale, garantendo così integrità e correttezza nel confronto tra operatori economici.'
+    }
+]
+
+---
+
+<Layout
+  title="Astro Tailwind - Home"
+  description="Soluzioni di trasporto professionali, affidabili e puntuali per la tua azienda."
+  activeLink="home"
+  bodyClass="home-page"
+>
+
+  <PageIntro
+      headerColor="light"
+      bgImage={introImg}
+      bgImageMobile={introImgMobile}
+  />
+
+  <BlockTab 
+    title="Governance"
+    content="La nostra strada verso una gestione responsabile"
+    titleColor="dark"
+    contentColor="dark"
+    backgroundColor="light"
+  />
+  
+  <ScrollingText
+    content="Creare valore per l’azienda e per gli stakeholder significa contribuire alla crescita economica, sociale e ambientale del contesto in cui operiamo, generando benefici concreti e misurabili."
+    contentColor="dark"
+    hasTab={false}
+    headerColor="dark"
+    bgColor="light"
+  />
+
+  <TeamMembers
+    members={teamMembers}
+  />
+
+  <Accordion
+    accordionElements={accordionElements}
+  />
+
+  <SimpleText
+    bgColor="light"
+    title="La Strada del nostro impegno"
+    content="Scopri la storia, i valori e la visione che guidano ogni viaggio di Valente Trasporti verso un futuro sostenibile e responsabile."
+    ctaLabel="La nostra storia"
+    ctaUrl="#"
+    ctaStyle="primary-variant"
+  />
+
+  <ImageBlock
+    backgroundImage={bridgeImg}
+    backgroundImageAlt="bridge"
+    headerColor="dark"
+    hasTopFade="true"
+  />
+
+</Layout>

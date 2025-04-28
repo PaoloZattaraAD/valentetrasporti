@@ -1,7 +1,18 @@
 ---
 import './style.scss';
+
+import { Image } from 'astro:assets';
+
+const {
+    headerColor,
+    bgImage,
+    bgImageMobile,
+} = Astro.props;
 ---
 
-<section class="page-intro w-screen max-w-full aspect-[1.25] md:aspect-[2.5] !p-0 -z-10 relative">
-    <div class="w-full h-screen bg-dark fixed header-light"></div>
+<section class=`page-intro w-screen max-w-full aspect-[1.1] md:aspect-[3] !p-0 -z-10 relative header-${headerColor}`>
+    <figure class=`w-full h-full fixed`>
+        <Image src={bgImage} alt="intro-image" class='aspect-[3] object-cover object-right max-md:hidden'/>
+        <Image src={bgImageMobile} alt="intro-image-mobile" class='aspect-[1.1] object-cover object-left'/>
+    </figure>
 </section>

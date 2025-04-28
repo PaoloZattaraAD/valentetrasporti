@@ -1,0 +1,29 @@
+---
+import './style.scss';
+
+import Download from '@/components/atoms/download/download.astro';
+
+const {
+    title,
+    downloads = [
+        {
+            downloadLabel:"",
+            downloadFileUrl:""
+        }
+    ]
+} = Astro.props;
+---
+
+<section class="downloads bg-white header-dark pt-lgMobile md:pt-lg">
+    <div class="grid-container">
+        <div class="downloads-inner col-start-3 col-end-13">
+            <h1 class="font-thin mb-md">{title}</h1>
+            {downloads.map(download => (
+                <Download
+                    downloadLabel={download.downloadLabel}
+                    downloadFileUrl={download.downloadFileUrl}
+                />
+            ))}
+        </div>
+    </div>
+</section>

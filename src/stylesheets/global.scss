@@ -68,7 +68,7 @@ $font-size-mobile: (
 }
 
 section {
-  @apply pb-md md:pb-lg;
+  @apply pb-lgMobile md:pb-lg;
 }
 
 main>section:last-of-type {
@@ -77,4 +77,14 @@ main>section:last-of-type {
   @media (min-width:769px) {
     padding-bottom: 460px;
   }
+}
+
+@mixin gradient-border($position: top) {
+  content: '';
+  position: absolute;
+  #{$position}: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(32, 31, 31, 0.7) 0%, rgba(32, 31, 31, 0.2) 100%);
 }

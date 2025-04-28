@@ -1,0 +1,38 @@
+---
+import './style.scss';
+
+import { Image } from 'astro:assets';
+import arrow from '@/assets/images/svg/arrow.svg';
+
+const {
+    title,
+    contentPreview,
+    image,
+    content,
+    isRole
+} = Astro.props;
+---
+
+<div class="accordion-element relative">
+    <div class="title flex justify-between items-center">
+        <div class="title-content py-4 md:py-6">
+            <h4>{title}</h4>
+            <div set:html={contentPreview}></div>
+        </div>
+        {isRole ? (
+            <div class="arrow-icon p-[10px] bg-light rounded">
+                <Image src={arrow} alt='arrow' class="w-[12px] aspect-square brightness-0 rotate-[90deg]"/>
+            </div>
+        ) : (
+            <div class="arrow-icon p-[10px] bg-light rounded">
+                <Image src={arrow} alt='arrow' class="w-[12px] aspect-square brightness-0 rotate-[90deg]"/>
+            </div>
+        )}
+    </div>
+    <div class="content relative w-full overflow-hidden">
+        <div class="absolute top-0 left-0 w-full md:flex justify-between py-6 items-start">
+            <Image src={image} alt="accordion-element-image" class="w-[50%] md:w-[30%] mb-6 md:mb-0 rounded-xl"/>
+            <div set:html={content} class="content-inner md:w-[60%]"></div>
+        </div>
+    </div>
+</div>

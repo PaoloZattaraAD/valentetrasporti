@@ -1,0 +1,150 @@
+---
+import './stylesheets/lavora-con-noi.scss';
+
+import Layout from '../layouts/Layout.astro';
+
+// Components
+import PageIntro from '@/components/blocks/page-intro/page-intro.astro';
+import BlockTab from '@/components/atoms/block-tab/block-tab.astro';
+import SostenibilitaText from '@/components/atoms/sostenibilita-text/sostenibilita-text.astro';
+import ScrollingText from '@/components/blocks/scrolling-text/scrolling-text.astro';
+import GradientTabSection from '@/components/blocks/gradient-tab-section/gradient-tab-section.astro';
+import Slider from '@/components/blocks/slider/slider.astro';
+import Roles from '@/components/blocks/roles/roles.astro';
+import SimpleText from '@/components/blocks/simple-text/simple-text.astro';
+import FeaturedNews from '@/components/blocks/featured-news/featured-news.astro';
+
+// Assets - General
+import introImg from '@/assets/images/trasporto-merci/trasporto-merci-header-desk.webp';
+import introImgMobile from '@/assets/images/trasporto-merci/trasporto-merci-header-mobile.webp';
+import featuredNewsImg from '@/assets/images/home/featured-news.webp';
+
+// Assets - Slider
+import slider1Img from '@/assets/images/lavora-con-noi/slide-lavora-1.webp';
+import authroImg from '@/assets/images/lavora-con-noi/author.webp';
+
+const slides = [
+  {
+    image: slider1Img,
+  },
+  {
+    content: "Mi sento parte di una squadra che valorizza davvero ogni persona, offrendo supporto e opportunità di crescita. Qui l’attenzione per il futuro sostenibile non è solo un concetto, ma un impegno concreto. Ogni giorno è una nuova sfida che affrontiamo insieme con passione e professionalità.",
+    authorName: "Mario Rossi",
+    authorRole: "media director",
+    authorImage: authroImg,
+  },
+  {
+    image: slider1Img,
+  },
+  {
+    content: "Mi sento parte di una squadra che valorizza davvero ogni persona, offrendo supporto e opportunità di crescita. Qui l’attenzione per il futuro sostenibile non è solo un concetto, ma un impegno concreto. Ogni giorno è una nuova sfida che affrontiamo insieme con passione e professionalità.",
+    authorName: "Mario Rossi",
+    authorRole: "media director",
+    authorImage: authroImg,
+  },
+]
+
+const roles = [
+  {
+    title:"Role 1",
+    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    url:"#"
+  },
+  {
+    title:"Role 2",
+    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    url:"#"
+  },
+  {
+    title:"Role 3",
+    content:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    url:"#"
+  },
+]
+
+---
+
+<Layout
+  title="Astro Tailwind - Servizi"
+  description="Scopri la nostra gamma completa di servizi di trasporto e logistica."
+  activeLink="servizi">
+
+  <PageIntro
+    headerColor="light"
+    bgImage={introImg}
+    bgImageMobile={introImgMobile}
+  />
+
+  <BlockTab 
+    title="Lavora con noi"
+    content="Diventa parte del nostro Viaggio"
+    titleColor="dark"
+    contentColor="dark"
+    backgroundColor="light"
+  />
+  
+  <ScrollingText
+    content="Abbiamo percorso molta strada e vogliamo farne ancora, grazie alla nostra squadra: dagli uffici agli autisti, ogni ruolo è essenziale. La fiducia dei nostri clienti è la nostra priorità, offrendo sempre vicinanza e affidabilità."
+    contentColor="dark"
+    hasTab={false}
+    headerColor="dark"
+    bgColor="light"
+    ctaLabel="vedi le nostre offerte"
+    ctaUrl="#"
+    ctaStyle="primary-variant"
+  />
+  
+  <SimpleText
+    bgColor="light"
+    title="La nostra squadra si racconta"
+    content="Le vere protagoniste di Valente Trasporti?<br> Le persone. Scopri cosa dicono i nostri dipendenti sulla loro esperienza lavorativa."
+  />
+
+  <Slider
+    iamgeOnly={false}
+    slides={slides}
+  />
+  
+  <SimpleText
+    bgColor="light"
+    title="Il tuo futuro in movimento."
+    content="Scopri le opportunità di carriera e guida il tuo futuro con Valente Trasporti."
+  />
+
+  <Roles 
+    roles={roles}
+  />
+
+  <GradientTabSection
+    bgColor="white"
+    >
+        <ScrollingText
+            content="Riduciamo l'impatto, miglioriamo il futuro: un viaggio alla volta"
+            contentColor="white"
+            hasTab={true}
+            bgColor="transparent"
+            headerColor="dark"
+            ctaLabel="valente per la sostenibilità"
+            ctaUrl="#"
+            ctaStyle="primary-variant"
+        />
+    
+      <SostenibilitaText/>
+  </GradientTabSection>
+  
+  <SimpleText
+    bgColor="white"
+    title="Trasportiamo anche le novità!"
+    content="Resta aggiornato sulle ultime novità di Valente Trasporti: notizie, innovazioni e aggiornamenti sui servizi sostenibili e di logistica avanzata."
+    ctaLabel="tutte le news"
+    ctaUrl="#"
+    ctaStyle="primary-variant"
+  />
+
+  <FeaturedNews
+    date="16 dicembre 2024"
+    excerpt="Lorem ipsum dolor sit amet, consectetur adipiscing elit eiusmod."
+    image={featuredNewsImg}
+  />
+
+</Layout>

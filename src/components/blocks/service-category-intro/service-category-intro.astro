@@ -16,17 +16,18 @@ const {
 } = Astro.props;
 ---
 
-<section class="service-category-intro relative bg-black pt-md md:pt-lg header-light">
+<section class="service-category-intro relative bg-black pt-lgMobile md:pt-lg header-light">
     <div class="grid-container">
         <div class="content col-start-3 col-end-13">
             <h1 class="text-white font-thin mb-20">{categoryTitle}</h1>
-            <div class="flex max-md:flex-col">
+            <div class="framed-content-container animated flex max-md:flex-col">
                 {framedContent.map(singleFramedContent => (
                     <FramedContent 
                         title={singleFramedContent.title}
                         content={singleFramedContent.content}
                         ctaLabel={singleFramedContent.ctaLabel}
                         ctaUrl={singleFramedContent.ctaLabel}
+                        style="primary"
                         borderColor="white"
                         textColor="white"
                         ctaStyle="primary"

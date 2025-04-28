@@ -1,0 +1,96 @@
+---
+import './stylesheets/download.scss';
+
+// Components
+import Layout from '@/layouts/Layout.astro';
+import PageIntro from '@/components/blocks/page-intro/page-intro.astro';
+import BlockTab from '@/components/atoms/block-tab/block-tab.astro';
+import Services from '@/components/blocks/services/services.astro';
+import SimpleText from '@/components/blocks/simple-text/simple-text.astro';
+
+// Assets - General
+import introImg from '@/assets/images/download/intro-test-rectangle.jpg';
+import introImgMobile from '@/assets/images/download/intro-test-rectangle.jpg';
+
+// Assets - Services
+import trasportoImg from '@/assets/images/svg/trasporto-merci-illustrazione.svg';
+import autogruImg from '@/assets/images/svg/trasporto-merci-illustrazione.svg';
+import logisticaImg from '@/assets/images/svg/trasporto-merci-illustrazione.svg';
+import Downloads from '@/components/blocks/downloads/downloads.astro';
+
+const services = [
+    {
+      name: "Traporto merci",
+      description: "SERVIZI 1 di trasporto merci con bilici, motrici e furgoni. La nostra flotta comprende mezzi centinati, aperti e furgonati, ideali per il trasporto di merci standard, eccezionali e ADR. Affidabilità e flessibilità per ogni esigenza logistica.",
+      url: "url 1",
+      image: trasportoImg,
+      imageAlt: "trasporto",
+    },
+    {
+      name: "Autogru",
+      description: "SERVIZI 2 di trasporto merci con bilici, motrici e furgoni. La nostra flotta comprende mezzi centinati, aperti e furgonati, ideali per il trasporto di",
+      url: "url 2",
+      image: autogruImg,
+      imageAlt: "autogru",
+    },
+    {
+      name: "Logistica e deposito",
+      description: "SERVIZI 3 di trasporto merci con bilici, motrici e furgoni. La nostra flotta comprende mezzi centinati, aperti e furgonati, ideali per il trasporto di merci standard, eccezionali e ADR. Affidabilità e flessibilità per ogni esigenza logistica. merci standard, eccezionali e ADR. Affidabilità e flessibilità per ogni esigenza logistica. merci standard, eccezionali e ADR. Affidabilità e flessibilità per ogni esigenza logistica.",
+      url: "url 3",
+      image: logisticaImg,
+      imageAlt: "logistica",
+    }
+  ]
+
+  const downloads = [
+    {
+      downloadLabel: "Brochure VALENTE ANGELO SAS",
+      downloadFileUrl: "#"
+    },
+    {
+      downloadLabel: "Dati fiscali",
+      downloadFileUrl: "#"
+    },
+    {
+      downloadLabel: "Iscrizione albo autotrasportatori",
+      downloadFileUrl: "#"
+    },
+    {
+      downloadLabel: "Licenza Comunitaria",
+      downloadFileUrl: "#"
+    },
+  ]
+
+---
+
+<Layout
+  title="Astro Tailwind - Home"
+  description="Soluzioni di trasporto professionali, affidabili e puntuali per la tua azienda."
+  activeLink="home"
+  bodyClass="home-page"
+>
+
+  <PageIntro
+      headerColor="dark"
+      bgImage={introImg}
+      bgImageMobile={introImgMobile}
+  />
+
+  <BlockTab 
+    title="Download"
+    content="Documentazione"
+    titleColor="dark"
+    contentColor="dark"
+    backgroundColor="white"
+  />
+
+  <Downloads 
+    title="Documenti disponibili"
+    downloads={downloads}
+  />
+
+  <Services
+    services={services}
+  />
+
+</Layout>

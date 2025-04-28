@@ -4,8 +4,11 @@ export default {
   theme: {
     extend: {
       spacing: {
-        md: "96px",
+        md: "80px",
         lg: "160px",
+        
+        mdMobile: "56px",
+        lgMobile: "96px",
       },
       colors: {
         dark: 'var(--color-dark)',
@@ -30,6 +33,7 @@ export default {
   safelist: [
     { pattern: /^text-(dark|light|red|green-light|green-dark|grey-light|grey-dark)$/ },
     { pattern: /^bg-(dark|light|red|green-light|green-dark|grey-light|grey-dark)$/ },
+    { pattern: /^border-(dark|light|red|green-light|green-dark|grey-light|grey-dark)$/ },
   ],
   plugins: [],
 }

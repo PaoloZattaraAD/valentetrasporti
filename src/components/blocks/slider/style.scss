@@ -20,4 +20,17 @@ section.slider {
             transform: scaleX(-1);
         }
     }
+
+    .swiper-slide {
+        display: inline-flex;
+        flex-direction: column;
+        min-height: 100%;
+
+        p.content {
+            @media (max-width:768px) {
+                font-size: 16px;
+                line-height: 22px;
+            }
+        }
+    }
 }

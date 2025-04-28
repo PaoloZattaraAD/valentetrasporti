@@ -1,0 +1,5 @@
+section.simple-text {
+    &:not(:has(a.button)) {
+        @apply pb-mdMobile md:pb-md;
+    }
+}

@@ -59,30 +59,30 @@ const slides = [
   {
     image: slider1Img,
     content: "",
-    editorName: "",
-    editorRole: "",
-    editorImage: "",
+    authorName: "",
+    authorRole: "",
+    authorImage: "",
   },
   {
     image: slider2Img,
     content: "",
-    editorName: "",
-    editorRole: "",
-    editorImage: "",
+    authorName: "",
+    authorRole: "",
+    authorImage: "",
   },
   {
     image: slider1Img,
     content: "",
-    editorName: "",
-    editorRole: "",
-    editorImage: "",
+    authorName: "",
+    authorRole: "",
+    authorImage: "",
   },
   {
     image: slider2Img,
     content: "",
-    editorName: "",
-    editorRole: "",
-    editorImage: "",
+    authorName: "",
+    authorRole: "",
+    authorImage: "",
   },
 ]
 
@@ -109,7 +109,7 @@ const slides = [
   <ScrollingText
     content="Operiamo nel settore degli autotrasporti e servizi autogru da oltre 70 anni e questo non è per noi un punto d’arrivo ma di partenza ogni giorno."
     bgColor="dark"
-    headerLight=true
+    headerColor="light"
     ctaLabel="La nostra storia"
     ctaUrl="#"
     ctaStyle="primary"
@@ -131,10 +131,11 @@ const slides = [
   <GradientTabSection>
       <ScrollingText
         content="Diamo respiro al cambiamento: il nostro impegno per la sostenibilità guarda al futuro delle persone, del territorio e dell’ambiente."
-        hasTab=true
+        hasTab={true}
         bgColor="transparent"
         ctaLabel="Valente per la sostenibilità"
         ctaUrl="#"
+        headerColor="dark"
         ctaStyle="primary-variant"
       />
 
@@ -144,6 +145,7 @@ const slides = [
   </GradientTabSection>
 
   <Slider
+    imageOnly={true}
     slides={slides}
   />
 
@@ -161,6 +163,7 @@ const slides = [
     headerColor="dark"
     hasTopFade={false}
     expanding="true"
+    bottomSpaceColor="white"
   />
   
   <SimpleText
