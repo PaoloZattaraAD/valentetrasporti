@@ -1,0 +1,41 @@
+---
+// src/components/atoms/motion-test/motion-test.astro
+---
+
+<div class="flex justify-center items-center py-16 bg-light">
+  <div class="text-center">
+    <h2 class="text-2xl font-bold mb-6 font-main">Test Motion.js</h2>
+    <div
+      id="motion-box"
+      class="w-32 h-32 bg-green-dark mx-auto rounded-lg flex items-center justify-center text-light font-mono"
+    >
+      Motion
+    </div>
+  </div>
+</div>
+
+<script>
+  // Importa le funzioni necessarie dalla libreria motion
+  import { animate, spring } from 'motion';
+
+  // Seleziona l'elemento da animare
+  const box = document.getElementById('motion-box');
+
+  if (box) {
+    // Animazione di base con motion
+    animate(
+      box,
+      {
+        scale: [1, 1.2, 1],
+        rotate: [0, 10, -10, 0],
+        backgroundColor: ['var(--color-green-dark)', 'var(--color-green-light)', 'var(--color-green-dark)'],
+      },
+      {
+        duration: 2,
+        easing: spring(),
+        repeat: Infinity,
+        repeatDelay: 1
+      }
+    );
+  }
+</script>

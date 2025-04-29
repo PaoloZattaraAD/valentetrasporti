@@ -1,0 +1,96 @@
+---
+// src/components/atoms/animated-logo/animated-logo.astro
+---
+
+<div class="py-16 bg-dark text-center" id="logo-container">
+  <h2 class="text-light text-xl mb-6 font-main">Logo Animato con Motion.js</h2>
+
+  <div class="flex justify-center space-x-2 overflow-hidden py-8" id="text-container">
+    <!-- Le lettere verranno generate dinamicamente con JavaScript -->
+  </div>
+
+  <div class="flex justify-center mt-8">
+    <div
+      id="animated-circle"
+      class="w-16 h-16 bg-green-light rounded-full"
+      style="opacity: 0; transform: scale(0);"
+    ></div>
+  </div>
+</div>
+
+<script>
+  import { animate, inView, stagger } from 'motion';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('logo-container');
+    const textContainer = document.getElementById('text-container');
+    const circle = document.getElementById('animated-circle');
+
+    // Testo da animare
+    const text = "VALENTE TRASPORTI";
+
+    // Crea gli elementi per ogni lettera
+    const letterElements = [];
+
+    text.split('').forEach((letter, index) => {
+      const span = document.createElement('span');
+      span.className = `inline-block font-button text-4xl ${
+        letter === ' ' ? 'w-4' : ''
+      } ${
+        index < 7 ? 'text-green-light' : 'text-light'
+      }`;
+      span.textContent = letter === ' ' ? '\u00A0' : letter;
+      span.style.opacity = '0';
+      span.style.transform = 'translateY(30px)';
+
+      textContainer.appendChild(span);
+      letterElements.push(span);
+    });
+
+    if (container) {
+      // Animazione di entrata del container
+      animate(
+        container,
+        { opacity: [0, 1] },
+        { duration: 1, easing: 'ease-in-out' }
+      );
+
+      // Aggiungi effetto inView per attivare l'animazione quando scorre in vista
+      inView(container, () => {
+        // Anima ogni lettera con un effetto stagger
+        animate(
+          letterElements,
+          {
+            y: [30, 0],
+            opacity: [0, 1],
+          },
+          {
+            delay: stagger(0.05),
+            duration: 0.8,
+            easing: 'ease-out'
+          }
+        );
+
+        // Anima il cerchio con un ritardo
+        setTimeout(() => {
+          if (circle) {
+            animate(
+              circle,
+              {
+                scale: [0, 1],
+                rotate: [0, 360],
+                opacity: [0, 1]
+              },
+              {
+                duration: 1.5,
+                easing: 'ease-out'
+              }
+            );
+          }
+        }, 1000);
+
+        return () => {}; // cleanup function
+      });
+    }
+  });
+</script>

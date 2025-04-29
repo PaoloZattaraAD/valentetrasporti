@@ -2,7 +2,7 @@
 import './stylesheets/index.scss';
 
 // Components
-import Layout from '@/layouts/Layout.astro';
+import Layout from '@/layouts/layout.astro';
 
 import BlockTab from '@/components/atoms/block-tab/block-tab.astro';
 import HeroVideo from '@/components/blocks/hero-video/hero-video.astro';
@@ -16,6 +16,8 @@ import SostenibilitaText from '@/components/atoms/sostenibilita-text/sostenibili
 import Slider from '@/components/blocks/slider/slider.astro';
 import SimpleText from '@/components/blocks/simple-text/simple-text.astro';
 import FeaturedNews from '@/components/blocks/featured-news/featured-news.astro';
+import MotionTest from '@/components/atoms/motion-test/motion-test.astro';
+import AnimatedLogo from '@/components/atoms/animated-logo/animated-logo.astro';
 
 // Assets - General
 import bridgeImg from '@/assets/images/home/bridge.webp';
@@ -94,12 +96,21 @@ const slides = [
   activeLink="home"
   bodyClass="home-page"
 >
-  
+
+
+  <!-- Test Motion.js con vanilla JavaScript -->
+  <MotionTest />
+
+  <!-- Componente animato più elaborato con vanilla JavaScript -->
+  <AnimatedLogo />
+
+
+
   <HeroVideo
     backgroundVideo="https://player.vimeo.com/video/449787858?autoplay=1&muted=1&background=1"
   />
 
-  <BlockTab 
+  <BlockTab
     title="Da oltre 70 anni"
     content="Trasportiamo con cura, pensando al futuro di tutti"
     contentColor="green-light"
@@ -107,7 +118,7 @@ const slides = [
   />
 
   <ScrollingText
-    content="Operiamo nel settore degli autotrasporti e servizi autogru da oltre 70 anni e questo non è per noi un punto d’arrivo ma di partenza ogni giorno."
+    content="Operiamo nel settore degli autotrasporti e servizi autogru da oltre 70 anni e questo non è per noi un punto d'arrivo ma di partenza ogni giorno."
     bgColor="dark"
     headerColor="light"
     ctaLabel="La nostra storia"
@@ -130,7 +141,7 @@ const slides = [
 
   <GradientTabSection>
       <ScrollingText
-        content="Diamo respiro al cambiamento: il nostro impegno per la sostenibilità guarda al futuro delle persone, del territorio e dell’ambiente."
+        content="Diamo respiro al cambiamento: il nostro impegno per la sostenibilità guarda al futuro delle persone, del territorio e dell'ambiente."
         hasTab={true}
         bgColor="transparent"
         ctaLabel="Valente per la sostenibilità"
@@ -165,7 +176,7 @@ const slides = [
     expanding="true"
     bottomSpaceColor="white"
   />
-  
+
   <SimpleText
     bgColor="white"
     title="Ti portiamo anche le novità!"

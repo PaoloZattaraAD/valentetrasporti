@@ -123,7 +123,7 @@ Tailwind CSS è già configurato nel progetto. Puoi utilizzare tutte le classi d
 
 ```astro
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../layouts/layout.astro';
 ---
 
 <Layout

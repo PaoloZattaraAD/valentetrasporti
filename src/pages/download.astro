@@ -2,7 +2,7 @@
 import './stylesheets/download.scss';
 
 // Components
-import Layout from '@/layouts/Layout.astro';
+import Layout from '@/layouts/layout.astro';
 import PageIntro from '@/components/blocks/page-intro/page-intro.astro';
 import BlockTab from '@/components/atoms/block-tab/block-tab.astro';
 import Services from '@/components/blocks/services/services.astro';
@@ -76,7 +76,7 @@ const services = [
       bgImageMobile={introImgMobile}
   />
 
-  <BlockTab 
+  <BlockTab
     title="Download"
     content="Documentazione"
     titleColor="dark"
@@ -84,7 +84,7 @@ const services = [
     backgroundColor="white"
   />
 
-  <Downloads 
+  <Downloads
     title="Documenti disponibili"
     downloads={downloads}
   />

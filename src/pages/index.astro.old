@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from '../layouts/layout.astro';
 import Card from '../components/atoms/card/card/Card.astro';
 import BlockTab from '@/components/atoms/block-tab/block-tab.astro';
 
