@@ -9,8 +9,9 @@ const {
     roles = [
         {
             title:"",
-            image:null,
-            content:""
+            contentPreview:"",
+            content:"",
+            roleUrl:"",
         }
     ]
 } = Astro.props;
@@ -23,11 +24,48 @@ const {
             {roles.map(role => (
                 <AccordionElement
                     title={role.title}
-                    image={role.image}
+                    contentPreview={role.contentPreview}
                     content={role.content}
-                    isRole={false}
+                    roleUrl={role.roleUrl}
+                    isRole={true}
                 />
             ))}
         </div>
     </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const accordionElements = document.querySelectorAll('.accordion-element');
+        const readMore = document.querySelectorAll('.read-more');
+
+        readMore.forEach(element => {
+            element.addEventListener('click', () => {
+                if(element.parentElement.parentElement.classList.contains('open'))
+                    CloseAccordionElement(element.parentElement.parentElement);
+                else
+                    OpenAccordionElement(element.parentElement.parentElement);
+            })
+
+            CloseAccordionElement(element.parentElement.parentElement);
+        })
+    })
+
+    function OpenAccordionElement (element) {
+        console.log(element);
+        element.classList.add('open');
+
+        const container = element.querySelector('.content');
+        const content = element.querySelector('.content>div') as HTMLElement;
+
+        container.style.height = content.getBoundingClientRect().height + 64 + 'px';
+    }
+
+    function CloseAccordionElement (element) {
+        element.classList.remove('open');
+
+        const container = element.querySelector('.content');
+
+        container.style.height = '44px';
+    }
+</script>

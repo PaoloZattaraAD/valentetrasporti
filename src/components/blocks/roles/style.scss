@@ -4,4 +4,21 @@ section.roles {
     @media (min-width:769px) {
         padding-bottom: 440px !important;
     }
+
+    .content>.absolute {
+        @apply pb-6;
+    }
+
+    h4 {
+        @media (max-width:768px) {
+            font-size: 28px;
+            line-height: 34px;
+        }
+    }
+
+    a.button.mobile-hidden {
+        @media (max-width:768px) {
+            display: none;
+        }
+    }
 }

@@ -13,7 +13,7 @@ const {
 } = Astro.props;
 ---
 
-<section class={`image w-screen bg-white max-w-full overflow-hidden header-${headerColor} ${expanding ? 'expanding min-h-[calc(100vh+160px)]' : 'h-[calc(100vh+280px)]'}`}>
+<section class={`image w-screen bg-white max-w-full overflow-hidden header-${headerColor} ${expanding ? 'expanding min-h-[calc(100vh+96px)] md:min-h-[calc(100vh+160px)]' : 'h-[calc(100vh+280px)]'}`}>
     <div class=`image-container bg-light h-full ${expanding ? '-mx-2 md:-mx-4 min-h-[100vh]' : ''}`>
         <figure class="w-full h-full relative">
             { hasTopFade && (

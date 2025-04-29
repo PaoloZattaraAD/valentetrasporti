@@ -1,7 +1,13 @@
 @import '../../../stylesheets/global.scss';
 
 .accordion-element {
-    cursor: pointer;
+    &:not(:has(.read-more)) {
+        cursor: pointer;
+    }
+
+    .read-more {
+        cursor: pointer;
+    }
 
     &::before {
         @include gradient-border(top);
@@ -16,9 +22,27 @@
         transition: transform 0.3s ease-in-out;
     }
 
+    .read-more {
+        .more {
+            display: inline;
+        }
+        .less {
+            display: none;
+        }
+    }
+
     &.open {
         .title img {
             transform: rotate(270deg);
+        }
+
+        .read-more {
+            .more {
+                display: none;
+            }
+            .less {
+                display: inline;
+            }
         }
     }
 }

@@ -1,4 +1,6 @@
 ---
+import './style.scss';
+
 import { Image } from "astro:assets";
 
 import AccordionElement from "@/components/atoms/accordion-element/accordion-element.astro"
@@ -27,6 +29,7 @@ const {
                     title={element.title}
                     image={element.image}
                     content={element.content}
+                    isRole={false}
                 />
             ))}
         </div>
