@@ -1,0 +1,56 @@
+---
+import './style.scss';
+
+import BlockTab from '@/components/atoms/block-tab/block-tab.astro';
+import FramedContent from '@/components/atoms/framed-content/framed-content.astro';
+
+const {
+    title,
+    bgColor,
+    framedContent = [
+        {
+            title: "",
+            content: "",
+            ctaLabel: "",
+            ctaUrl: ""
+        }
+    ],
+    blockTabTitle,
+    blockTabTitleColor,
+    blockTabContent,
+    blockTabContentColor,
+} = Astro.props;
+---
+
+<section class=`framed-content-animated relative bg-${bgColor} pt-lgMobile md:pt-lg header-light`>
+
+    <BlockTab 
+      title={blockTabTitle}
+      titleColor={blockTabTitleColor}
+      content={blockTabContent}
+      contentColor={blockTabContentColor}
+      backgroundColor={bgColor}
+    />
+
+    <div class="grid-container">
+        <div class="content col-start-3 col-end-13">
+            {title && (
+                <h1 class="text-white font-thin mb-20">{title}</h1>
+            )}
+            <div class="framed-content-container animated flex max-md:flex-col">
+                {framedContent.map(singleFramedContent => (
+                    <FramedContent 
+                        title={singleFramedContent.title}
+                        content={singleFramedContent.content}
+                        ctaLabel={singleFramedContent.ctaLabel}
+                        ctaUrl={singleFramedContent.ctaLabel}
+                        style="primary"
+                        borderColor="white"
+                        textColor="white"
+                        ctaStyle="primary"
+                    />
+                ))}
+            </div>
+        </div>
+    </div>
+</section>

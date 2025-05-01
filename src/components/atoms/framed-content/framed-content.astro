@@ -28,14 +28,13 @@ const primary = style === "primary";
         </>
     )}
     {content && (
-        <p class={`content text-${textColor}`}>{content}</p>
+        <p class={`content text-${textColor} mt-auto max-md:mb-11`}>{content}</p>
     )}
     {ctaLabel && ctaUrl && (
         <Button
             label={ctaLabel}
             url={ctaUrl}
             style={ctaStyle}
-            buttonClass="mt-auto"
         />
     )}
 </div>

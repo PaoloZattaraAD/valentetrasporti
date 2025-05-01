@@ -39,5 +39,70 @@ const {
 
   <!-- Inserisce direttamente il componente Footer -->
   <Footer />
+
+
+  <script>
+import { progress } from "motion";
+
+    // helper clamp function
+    const clamp = (value, min, max) => {
+     return(Math.min(Math.max(min, value), max));
+    }
+
+    const getScrollProgress = (element, threshold, containerHeightMultiplier = 1) => {
+      const rect = element.getBoundingClientRect();
+
+      // grab element info
+      let top = rect.top;
+      let bottom = rect.bottom;
+      let height = (bottom - top);
+      
+      // rielaborate accounting for height multiplier
+      top -= height * 0.5 * (containerHeightMultiplier -  1);
+      bottom += height * 0.5 * (containerHeightMultiplier -  1);
+      height *= containerHeightMultiplier;
+      
+      // calculate progress
+      return(clamp((threshold - top) / height, 0, 1));
+    }
+    
+    document.addEventListener("DOMContentLoaded", () => {
+      const scrollingTexts = document.querySelectorAll('section.scrolling-text');
+      const expandingImages = document.querySelectorAll('section.image.expanding .image-container');
+      const sliders = document.querySelectorAll('section.slider');
+
+      const scrollAnimations = () => {
+
+        // Scrolling texts
+        scrollingTexts.forEach(scrollingText => {
+            const words = scrollingText.querySelectorAll('section.scrolling-text .content-text>span');
+            const progressLength = 1 / words.length;
+            const content = scrollingText.querySelector('.content-text');
+            const progress = getScrollProgress(content, window.innerHeight / 2, 1.5);
+
+            for(let i = 0; i < words.length; i++) {
+              const word = words[i] as HTMLElement;
+              const min = progressLength * i - progressLength * 3;
+              const max = progressLength * i;
+              word.style.opacity = 0.3 + clamp(((progress * 1.4 - 0.2) - min) / (max - min), 0, 1) * 0.7 + "";
+            }
+        });
+
+        // Scrolling images
+        expandingImages.forEach(image => {
+          const container = image.querySelector('figure');
+          container.style.maxWidth = 60 + 40 * getScrollProgress(image, screen.height, 1.1) + "%";
+        })
+
+        // Slider parallax
+        sliders.forEach(slider => {
+          const sliderElement = slider.querySelector('.swiper-container') as HTMLElement;
+          sliderElement.style.transform = "translateX(" + -30 * getScrollProgress(slider, window.innerHeight / 2, 2) + "vw)";
+        })
+      }
+
+      document.addEventListener('scroll', scrollAnimations)
+    })
+  </script>
 </body>
 </html>

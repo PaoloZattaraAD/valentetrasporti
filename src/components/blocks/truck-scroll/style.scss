@@ -3,7 +3,7 @@ section.truck-scroll {
     overflow-x: clip;
 
     // truck scroll length (clamped)
-    height: min(max(1000px, 300vh), 2500px);
+    height: min(max(1000px, 500vh), 3000px);
 
     .truck {
         top: calc(50vh - 11vw);

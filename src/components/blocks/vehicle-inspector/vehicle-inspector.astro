@@ -5,7 +5,7 @@ const {
     vehicles = [
         {
             vehicleName:'',
-            veihcleModelPath:'',
+            vehicleModelPath:'',
             size:[],
             data:[],
             characteristics:[],
@@ -20,18 +20,30 @@ const {
     
     <div class="grid-container">
         <div class="inspector-inner col-start-3 col-end-13">
-            <div class="model-selector flex justify-between gap-x-[56px]">
+            <div class="model-selector flex justify-between gap-x-2 md:gap-x-[56px] max-md:mb-[56px]">
                 {vehicles.map((vehicle, index) => (
-                    <h5 class={`model-selector-button relative grow pb-4 ${index === 0 ? 'selected' : ''} cursor-pointer`}>{vehicle.vehicleName}</h5>
+                    <h5 class={`model-selector-button relative flex-1 grow pb-4 ${index === 0 ? 'selected' : ''} cursor-pointer`}>{vehicle.vehicleName}</h5>
                 ))}
             </div>
 
             {vehicles.map((vehicle, index) => (
                 <div class={`vehicle ${index !== 0 ? 'hidden' : ''}`}>
-                <model-viewer class="w-full aspect-[1.778] h-auto" alt="dukk" src={vehicle.veihcleModelPath} environment-image="../../public/assets/HDRIs/brown_photostudio_02_1k.hdr" shadow-intensity="1" camera-controls disable-zoom touch-action="pan-y"></model-viewer>
+                <model-viewer 
+                class="w-full aspect-[1.778] h-auto max-md:mb-[56px]" 
+                alt="truck" 
+                src={vehicle.vehicleModelPath} 
+                environment-image="../../public/assets/HDRIs/brown_photostudio_02_1k.hdr" 
+                shadow-intensity="1" 
+                camera-controls 
+                disable-zoom 
+                touch-action="pan-y" 
+                max-camera-orbit="Infinity 85deg auto" 
+                min-camera-orbit="Infinity 50deg auto" 
+                field-of-view="80deg"
+                ></model-viewer>
 
                 <div class='vehicle-info'>
-                    <div class="flex flex-col gap-y-[56px]">
+                    <div class="flex flex-col gap-y-11 md:gap-y-[56px]">
                         <div class="vehicle-size">
                             <h5>Specifiche trattore e semirimorchio</h5>
                             <div class="vehicle-info-inner">

@@ -48,3 +48,42 @@ const {
         </div>
     </div>
 </section>
+
+<script>
+    import { animate, inView, stagger } from 'motion';
+  
+    document.addEventListener('DOMContentLoaded', () => {
+        const featuredNews = document.querySelector('section.featured-news');
+
+        if(!featuredNews)
+            return;
+
+        const newsInner = featuredNews.querySelector('.news-inner');
+        const newsTruck = featuredNews.querySelector('.truck');
+
+        inView(featuredNews, () => {
+            animate(
+                newsInner,
+                {
+                x: ["200vw", 0, 0],
+                },
+                {
+                duration: 4,
+                ease: 'linear'
+                }
+            );
+            animate (
+                newsTruck,
+                {
+                    x: [0, 0, '-133.6vw'],
+                },
+                {
+                    duration: 4,
+                    ease: 'linear'
+                }
+            );
+          return () => {};
+        });
+    });
+  </script>
+  

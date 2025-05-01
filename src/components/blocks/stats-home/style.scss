@@ -18,16 +18,6 @@
             }
         }
 
-        &:nth-child(1) .bubble-inner {
-            animation-duration: 5s;
-        }
-        &:nth-child(2) .bubble-inner {
-            animation-duration: 13s;
-        }
-        &:nth-child(3) .bubble-inner {
-            animation-duration: 8s;
-        }
-
         .bubble-container {
             @apply text-white flex flex-col items-center mb-20;
 
@@ -42,10 +32,6 @@
                 margin-bottom: 24px;
 
                 &-inner {
-                    animation-timing-function: ease-in-out;
-                    animation-iteration-count: infinite;
-                    animation-name: bubble-animation;
-
                     width: 100%;
                     height: 100%;
                     border-radius: 50%;
@@ -53,17 +39,5 @@
                 }
             }
         }
-    }
-}
-
-@keyframes bubble-animation {
-    0% {
-        scale: 1;
-    }
-    50% {
-        scale: 0.4;
-    }
-    100% {
-        scale: 1;
     }
 }

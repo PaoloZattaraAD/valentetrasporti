@@ -21,6 +21,11 @@ section.slider {
         }
     }
 
+    .swiper-container,
+    .swiper-gallery {
+        overflow: visible;
+    }
+
     .swiper-slide {
         display: inline-flex;
         flex-direction: column;

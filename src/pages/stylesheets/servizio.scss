@@ -1,3 +1,7 @@
 .scrolling-text {
     padding-bottom: 80px;
 }
+
+section.framed-content-animated {
+    @apply pb-[182px] md:pb-[320px]
+}

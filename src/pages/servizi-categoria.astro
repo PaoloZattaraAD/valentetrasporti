@@ -5,8 +5,7 @@ import Layout from '../layouts/layout.astro';
 
 // Components
 import PageIntro from '@/components/blocks/page-intro/page-intro.astro';
-import BlockTab from '@/components/atoms/block-tab/block-tab.astro';
-import ServiceCategoryIntro from '@/components/blocks/service-category-intro/service-category-intro.astro';
+import FramedContentAnimated from '@/components/blocks/framed-content-animated/framed-content-animated.astro';
 import ImageBlock from '@/components/blocks/image/image.astro';
 import Services from '@/components/blocks/services/services.astro';
 import SostenibilitaText from '@/components/atoms/sostenibilita-text/sostenibilita-text.astro';
@@ -31,8 +30,8 @@ const introFramedContent = [
   {
     title:"Trasporti a carico completo",
     content:"Servizio di trasporto a carico completo in Italia ed Europa con bilici da 13,60m dotati di sistemi alza/abbassa e copri/scopri. Ideale per carichi voluminosi fino a 3m di altezza e 33 pallet standard, garantendo efficienza e soluzioni logistiche personalizzate.",
-      ctaLabel:"vai al servizio",
-      ctaUrl:"#"
+    ctaLabel:"vai al servizio",
+    ctaUrl:"#"
   },
   {
       title:"Distribuzione pallettizzata",
@@ -110,16 +109,21 @@ const slides = [
   />
 
 
-  <BlockTab 
+  <!-- <BlockTab 
     title="Trasporto merci"
     content="Altri servizi di Trasporto Merci"
     contentColor="red"
     backgroundColor="black"
-  />
+  /> -->
 
-  <ServiceCategoryIntro 
-    categoryTitle="Trasporto Merci"
+  <FramedContentAnimated 
+    title="Trasporto Merci"
+    bgColor="black"
     framedContent={introFramedContent}
+    blockTabTitle="Trasporto Merci"
+    blockTabTitleColor="white"
+    blockTabContent="Altri servizi di Trasporto Merci"
+    blockTabContentColor="red"
   />
 
   <ImageBlock

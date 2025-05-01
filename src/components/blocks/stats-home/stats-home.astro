@@ -48,3 +48,45 @@ const {
         </div>
     </div>
 </section>
+
+<script>
+    import { animate, easeInOut } from 'motion';
+
+    const bubbles = document.querySelectorAll('section.stats-home .framed-content .bubble-inner');
+
+    if(bubbles.length >= 3) {
+        animate (
+            bubbles[0],
+            {
+                scale: [1, 0.4, 1]
+            },
+            {
+                duration: 5,
+                ease: easeInOut,
+                repeat: Infinity
+            },
+        )
+        animate (
+            bubbles[1],
+            {
+                scale: [1, 0.4, 1]
+            },
+            {
+                duration: 13,
+                ease: easeInOut,
+                repeat: Infinity
+            },
+        )
+        animate (
+            bubbles[2],
+            {
+                scale: [1, 0.4, 1]
+            },
+            {
+                duration: 8,
+                ease: easeInOut,
+                repeat: Infinity
+            },
+        )
+    }
+</script>

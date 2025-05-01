@@ -70,7 +70,17 @@
             easing: 'ease-out'
           }
         );
-
+        animate(
+              circle,
+              {
+                opacity: [0, 0]
+              },
+              {
+                duration: 1.5,
+                easing: 'ease-out'
+              }
+            );
+            
         // Anima il cerchio con un ritardo
         setTimeout(() => {
           if (circle) {

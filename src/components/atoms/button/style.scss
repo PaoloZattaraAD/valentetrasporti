@@ -27,7 +27,7 @@ a.button {
     &.primary-variant:hover,
     &.secondary-variant:hover {
         p {
-            color: #fff;
+            color: #fff !important;
         }
     }
 

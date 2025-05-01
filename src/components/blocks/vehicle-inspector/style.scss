@@ -9,19 +9,23 @@ section.vehicle-inspector {
             &.selected {
                 border-bottom: 2px solid #000;
             }
+            @media (max-width:768px) {
+                font-size: 14px;
+                line-height: 18px;
+            }
         }
     }
 
     .vehicle-info {
         h5 {
-            @apply pb-4 mb-6 relative;
+            @apply pb-2 md:pb-4 mb-4 md:mb-6 relative;
             &::before {
                 @include gradient-border(bottom);
             }
         }   
 
         .vehicle-info-inner {
-            @apply flex gap-x-[56px];
+            @apply flex flex-col gap-y-4 md:flex-row gap-x-[56px];
     
             >* {
                 flex: 1;

@@ -4,8 +4,12 @@
     &.animated {
         @media (min-width:769px) {
             p.content {
-                width: 25vw;
+                width: 35vw;
                 margin-bottom: 56px;
+            }
+
+            &:has(.framed-content:nth-child(3)) p.content {
+                width: 25vw;
             }
         }
     }
@@ -49,38 +53,61 @@
                 }
             }
 
-            &:not(:hover) {
-                .framed-content {
-                    min-width: 29%;
-                    >p { 
-                        opacity: 0; 
-                        top: 20px;
-                    }
+            // handle widths
+            .framed-content {
+                min-width: 50%;
 
-                    &:first-child {
-                        min-width: 42%;
-                        >p { 
-                            opacity: 1; 
-                            top: 0;
-                        }
-
-                        a.button {
-                            opacity: 1;
-                        }
-                    }
+                .title {
+                    max-width: 25vw;
                 }
             }
 
             &:hover {
                 .framed-content {
-                    min-width: 29%;
+                    min-width: 40%;
+
+                    &:hover {
+                        min-width: 60%;
+                    }
+                }
+            }
+
+            &:has(.framed-content:nth-child(3))
+            {
+                .framed-content {
+                    min-width: 33.333%;
+
+                    .title {
+                        max-width: 19vw;
+                    }
+                }
+
+                &:hover {
+                    .framed-content {
+                        min-width: 29%;
+
+                        &:hover {
+                            min-width: 42%;
+                        }
+                    }
+                }
+            }
+
+            .framed-content {
+                >p { 
+                    opacity: 0; 
+                    top: 20px;
+                }
+            }
+
+            &:hover {
+                .framed-content {
                     >p { 
                         opacity: 0; 
                         top: 20px;
                     }
 
                     &:hover {
-                        min-width: 42%;
                         p { 
                             opacity: 1; 
                             top: 0;

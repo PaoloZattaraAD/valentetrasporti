@@ -36,7 +36,6 @@ const {
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const accordionElements = document.querySelectorAll('.accordion-element');
         const readMore = document.querySelectorAll('.read-more');
 
         readMore.forEach(element => {
@@ -58,7 +57,7 @@ const {
         const container = element.querySelector('.content');
         const content = element.querySelector('.content>div') as HTMLElement;
 
-        container.style.height = content.getBoundingClientRect().height + 64 + 'px';
+        container.style.height = content.getBoundingClientRect().height + (window.innerWidth < 769 ? 132 : 64) + 'px';
     }
 
     function CloseAccordionElement (element) {
@@ -66,6 +65,7 @@ const {
 
         const container = element.querySelector('.content');
 
-        container.style.height = '44px';
+        container.style.height = window.innerWidth < 769 ? '112px' : '44px';
     }
+    
 </script>

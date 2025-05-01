@@ -46,8 +46,16 @@ const {
         </div>
     </div>
     {isRole && 
-        <div class="absolute bottom-0 font-mono uppercase text-dark underline py-6 w-full bg-light">
+        <div class="absolute bottom-[68px] md:bottom-0 font-mono uppercase text-dark underline py-6 w-full bg-light">
             <h6 class="read-more">Leggi di <span class="more">più</span><span class="less">meno</span></h6>
+        </div>
+        <div class="absolute bottom-0 bg-light w-full md:hidden">
+            <Button
+                label="invia la candidatura"
+                url={roleUrl}
+                style="tertiary"
+                buttonClass="py-6"
+            />
         </div>
     }
 </div>

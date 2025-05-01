@@ -8,12 +8,12 @@ import PageIntro from '@/components/blocks/page-intro/page-intro.astro';
 import BlockTab from '@/components/atoms/block-tab/block-tab.astro';
 import ImageBlock from '@/components/blocks/image/image.astro';
 import Services from '@/components/blocks/services/services.astro';
-import SostenibilitaText from '@/components/atoms/sostenibilita-text/sostenibilita-text.astro';
 import ScrollingText from '@/components/blocks/scrolling-text/scrolling-text.astro';
 import Slider from '@/components/blocks/slider/slider.astro';
 import SimpleText from '@/components/blocks/simple-text/simple-text.astro';
 import ServiceIntro from '@/components/blocks/service-intro/service-intro.astro';
 import VehicleInspector from '@/components/blocks/vehicle-inspector/vehicle-inspector.astro';
+import FramedContentAnimated from '@/components/blocks/framed-content-animated/framed-content-animated.astro';
 
 // Assets - General
 import expandingImg from '@/assets/images/home/image-expanding.webp';
@@ -27,7 +27,7 @@ import trasportoImg from '@/assets/images/svg/trasporto-merci-illustrazione.svg'
 import slider1Img from '@/assets/images/home/slider-1.png';
 import slider2Img from '@/assets/images/home/slider-2.png';
 
-const introFramedContent = [
+const serviceIntroFramedContent = [
   {
     title:"Trasporti a carico completo",
     content:"Con oltre 70 anni nel settore, Valente Trasporti garantisce soluzioni di trasporto merci precise e personalizzate. La lunga tradizione ci permette di affrontare ogni incarico con competenza e affidabilità, superando le aspettative dei clienti.",
@@ -94,7 +94,7 @@ const slides = [
 const vehicles = [
   {
     vehicleName:'Bilico',
-    veihcleModelPath:'../../public/assets/models/Duck/Duck.glb',
+    vehicleModelPath:'../../public/assets/models/truck/truck.glb',
     size:[
       'Lunghezza interna utile semirimorchio 13,60m',
       'Larghezza interna utile semirimorchio 2,49m',
@@ -118,7 +118,7 @@ const vehicles = [
   },
   {
     vehicleName:'Furgone',
-    veihcleModelPath:'../../public/assets/models/Duck/Duck.glb',
+    vehicleModelPath:'../../public/assets/models/truck/truck.glb',
     size:[
       'Lunghezza interna utile semirimorchio 13,60m',
       'Larghezza interna utile semirimorchio 2,49m',
@@ -142,7 +142,7 @@ const vehicles = [
   },
   {
     vehicleName:'Furgoncino',
-    veihcleModelPath:'../../public/assets/models/Duck/Duck.glb',
+    vehicleModelPath:'../../public/assets/models/truck/truck.glb',
     size:[
       'Lunghezza interna utile semirimorchio 13,60m',
       'Larghezza interna utile semirimorchio 2,49m',
@@ -165,6 +165,22 @@ const vehicles = [
     ]
   },
 ]
+
+const animatedFramedContent = [
+  {
+      title:"Distribuzione pallettizzata",
+      content:"Servizio di distribuzione pallettizzata con furgoni e motrici centinate, disponibili anche con sponda idraulica. Consegne rapide di scatole, pallet singoli o multipli in 24/48/72 ore su tutto il territorio nazionale, garantendo puntualità ed efficienza logistica.",
+      ctaLabel:"vai al servizio",
+      ctaUrl:"#"
+  },
+  {
+      title:"Trasporti espressi",
+      content:"Servizio di distribuzione pallettizzata con furgoni e motrici centinate, disponibili anche con sponda idraulica. Consegne rapide di scatole, pallet singoli o multipli in 24/48/72 ore su tutto il territorio nazionale, garantendo puntualità ed efficienza logistica.",
+      ctaLabel:"vai al servizio",
+      ctaUrl:"#"
+  }
+]
+
 ---
 
 <Layout
@@ -195,7 +211,7 @@ const vehicles = [
   />
 
   <ServiceIntro 
-    framedContent={introFramedContent}
+    framedContent={serviceIntroFramedContent}
   />
 
   <ImageBlock
@@ -223,6 +239,15 @@ const vehicles = [
   <Slider
     imageOnly={true}
     slides={slides}
+  />
+
+  <FramedContentAnimated 
+    bgColor="dark"
+    framedContent={animatedFramedContent}
+    blockTabTitle="Trasporto Merci"
+    blockTabTitleColor="white"
+    blockTabContent="Altri servizi di Trasporto Merci"
+    blockTabContentColor="red"
   />
 
   <Services
