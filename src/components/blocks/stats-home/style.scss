@@ -1,4 +1,8 @@
 .stats-home {
+    * {
+        @apply text-white;
+    }
+    
     .framed-content {
         @media (min-width:769px) {
             flex: 0 0 33.333%;

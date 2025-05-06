@@ -41,7 +41,7 @@ const {
             <div class="service-descriptions">
                 {services.map((service, id) => (
                     <div class={`single-service-description ${id !== 0 ? 'hidden' : ''}`}>
-                        <p class="h5 mb-11 md:mb-mdMobile">{service.description}</p>
+                        <p class="h5 mb-11 md:mb-mdMobile fade-element">{service.description}</p>
                     <Button
                         label={"Vai al servizio"}
                         url={service.url}

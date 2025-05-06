@@ -46,6 +46,9 @@ a.button {
 
     &.primary,
     &.primary-variant {
+        p {
+            @apply tracking-widest;
+        }
         &::before {
             background-color: var(--color-red);
         }
@@ -77,8 +80,8 @@ a.button {
         }
     }
 
-    &.primary,
-    &.secondary {
+    &.primary *,
+    &.secondary * {
         @apply text-white;
     }
     &.primary-variant,

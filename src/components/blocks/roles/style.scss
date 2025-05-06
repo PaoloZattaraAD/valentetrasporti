@@ -5,6 +5,12 @@ section.roles {
         padding-bottom: 440px !important;
     }
 
+    .title-content>div,
+    .content-inner {
+        font-size: 18px;
+        font-weight: 300;
+    }
+
     .content>.absolute {
         @apply pb-6;
     }

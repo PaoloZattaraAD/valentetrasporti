@@ -1,0 +1,74 @@
+---
+import './stylesheets/download.scss';
+
+// Components
+import Layout from '@/layouts/layout.astro';
+import PageIntro from '@/components/blocks/page-intro/page-intro.astro';
+import BlockTab from '@/components/atoms/block-tab/block-tab.astro';
+import NewsIntro from '@/components/blocks/news-intro/news-intro.astro'
+import NewsContent from '@/components/blocks/news-content/news-content.astro';
+import NewsQuote from '@/components/atoms/news-quote/news-quote.astro';
+import SimpleText from '@/components/blocks/simple-text/simple-text.astro';
+
+// Assets - General
+import introImg from '@/assets/images/news/news-header-desk.webp';
+import introImgMobile from '@/assets/images/news/news-header-mobile.webp';
+import newsImage from '@/assets/images/home/bridge.webp';
+
+const quoteContent = 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.';
+
+const filters = [
+    'Filtro 1',
+    'Filtro 2'
+]
+
+---
+
+<Layout
+  title="Astro Tailwind - Home"
+  description="Soluzioni di trasporto professionali, affidabili e puntuali per la tua azienda."
+  activeLink="home"
+  bodyClass="home-page"
+>
+
+  <PageIntro
+      headerColor="dark"
+      bgImage={introImg}
+      bgImageMobile={introImgMobile}
+  />
+
+  <BlockTab
+    title="News"
+    content="Restiamo aggiornati: scopri le ultime notizie"
+    titleColor="dark"
+    contentColor="dark"
+    backgroundColor="white"
+  />
+
+  <NewsIntro 
+    featuredImage={newsImage},
+    filters={filters}
+    date="16 dicembre 2024"
+    title="Lorem ipsum dolor sit amet, consectetur adipiscing elit eiusmod."
+  />
+
+  <NewsContent>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <NewsQuote
+        content={quoteContent}
+    />
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </NewsContent/>
+
+  <SimpleText
+    bgColor="white"
+    title="Trasportiamo altre novità!"
+    content="Continua la lettura"
+    ctaLabel="Tutte le news"
+    ctaUrl="#"
+    ctaStyle="primary-variant"
+  />
+
+</Layout>

@@ -1,0 +1,12 @@
+section.news-content {
+    .news-content-inner {
+        @media (min-width:769px) {
+            grid-column-start: 3;   
+            grid-column-end: 11;
+        }
+
+        >*:not(:last-child) {
+            margin-bottom: 40px;
+        }
+    }
+}

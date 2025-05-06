@@ -1,0 +1,23 @@
+section.news-intro {
+    .news-intro-inner {
+        @media (min-width:769px) {
+            grid-column-start: 3;   
+            grid-column-end: 11;
+        }
+
+        h1 {
+            @media (max-width:768px) {
+                font-size: 22px;
+                line-height: 28px;
+            }
+        }
+
+        a .font-mono,
+        .date {
+            @media (max-width:768px) {
+                font-size: 12px;
+                line-height: 1;
+            }
+        }
+    }
+}

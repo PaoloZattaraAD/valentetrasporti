@@ -6,11 +6,10 @@ import Layout from '@/layouts/layout.astro';
 import PageIntro from '@/components/blocks/page-intro/page-intro.astro';
 import BlockTab from '@/components/atoms/block-tab/block-tab.astro';
 import Services from '@/components/blocks/services/services.astro';
-import SimpleText from '@/components/blocks/simple-text/simple-text.astro';
 
 // Assets - General
-import introImg from '@/assets/images/download/intro-test-rectangle.jpg';
-import introImgMobile from '@/assets/images/download/intro-test-rectangle.jpg';
+import introImg from '@/assets/images/download/download-header-desk.webp';
+import introImgMobile from '@/assets/images/download/download-header-mobile.webp';
 
 // Assets - Services
 import trasportoImg from '@/assets/images/svg/trasporto-merci-illustrazione.svg';
@@ -21,14 +20,14 @@ import Downloads from '@/components/blocks/downloads/downloads.astro';
 const services = [
     {
       name: "Traporto merci",
-      description: "SERVIZI 1 di trasporto merci con bilici, motrici e furgoni. La nostra flotta comprende mezzi centinati, aperti e furgonati, ideali per il trasporto di merci standard, eccezionali e ADR. Affidabilità e flessibilità per ogni esigenza logistica.",
+      description: "Servizi di trasporto merci con bilici, motrici e furgoni. La nostra flotta comprende mezzi centinati, aperti e furgonati, ideali per il trasporto di merci standard, eccezionali e ADR. Affidabilità e flessibilità per ogni esigenza logistica.",
       url: "url 1",
       image: trasportoImg,
       imageAlt: "trasporto",
     },
     {
       name: "Autogru",
-      description: "SERVIZI 2 di trasporto merci con bilici, motrici e furgoni. La nostra flotta comprende mezzi centinati, aperti e furgonati, ideali per il trasporto di",
+      description: "Noleggio di autogru fuoristrada ed elettriche per lavori interni, camion con gru per il trasporto e il carico/scarico merci, e pattini a rotolamento per lo spostamento di macchinari pesanti. Soluzioni versatili per ogni necessità operativa.",
       url: "url 2",
       image: autogruImg,
       imageAlt: "autogru",
@@ -45,19 +44,31 @@ const services = [
   const downloads = [
     {
       downloadLabel: "Brochure VALENTE ANGELO SAS",
-      downloadFileUrl: "#"
+      downloadFileUrl: "https://drive.google.com/file/d/1VYuDxOFa5hhJjAM4srh4yzLSxT-MVHEi/view?usp=drive_link"
     },
     {
       downloadLabel: "Dati fiscali",
-      downloadFileUrl: "#"
+      downloadFileUrl: "https://drive.google.com/file/d/1iSs0V0Cz3-3N7EozOkl0AMSX-wh3VvoK/view?usp=drive_link"
     },
     {
       downloadLabel: "Iscrizione albo autotrasportatori",
-      downloadFileUrl: "#"
+      downloadFileUrl: "https://drive.google.com/file/d/1rO6dJKdina3MuMZPlAGMdn2m8itvBV9J/view?usp=drive_link"
     },
     {
       downloadLabel: "Licenza Comunitaria",
-      downloadFileUrl: "#"
+      downloadFileUrl: "https://drive.google.com/file/d/1RMNFdXVRdnF7f7HbVqPmrER0dJu9v9fc/view?usp=drive_link"
+    },
+    {
+      downloadLabel: "Certificato di iscrizione al REN",
+      downloadFileUrl: "https://drive.google.com/file/d/1rePqVJEG5TVy69-zN3DsdiWDSkjMDfKA/view?usp=drive_link"
+    },
+    {
+      downloadLabel: "DURC Valente Angelo S.A.S. 06.2018",
+      downloadFileUrl: "https://drive.google.com/file/d/1bK5Hv9_3maAnISJTNdG_DCXlI8q3bQHU/view?usp=drive_link"
+    },
+    {
+      downloadLabel: "Polizza RCV",
+      downloadFileUrl: "https://drive.google.com/file/d/172M-CUPmjw3nHK976cs-JObppw0MSCkM/view?usp=drive_link"
     },
   ]
 

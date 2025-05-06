@@ -2,6 +2,10 @@ footer {
     position: relative;
     overflow: hidden;
 
+    * {
+        color: #fff !important;
+    }
+
     .grid-container {
         @media (max-width:768px) {
             padding: 0 !important;

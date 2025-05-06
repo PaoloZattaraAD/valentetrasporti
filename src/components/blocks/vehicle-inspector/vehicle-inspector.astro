@@ -6,6 +6,7 @@ const {
         {
             vehicleName:'',
             vehicleModelPath:'',
+            fov:'',
             size:[],
             data:[],
             characteristics:[],
@@ -36,10 +37,11 @@ const {
                 shadow-intensity="1" 
                 camera-controls 
                 disable-zoom 
+                disable-pan
                 touch-action="pan-y" 
                 max-camera-orbit="Infinity 85deg auto" 
                 min-camera-orbit="Infinity 50deg auto" 
-                field-of-view="80deg"
+                field-of-view={`${vehicle.fov}deg`}
                 ></model-viewer>
 
                 <div class='vehicle-info'>

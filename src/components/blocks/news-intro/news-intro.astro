@@ -1,0 +1,43 @@
+---
+import './style.scss';
+
+import arrowImage from '@/assets/images/svg/arrow.svg';
+
+import { Image } from 'astro:assets';
+
+const {
+    featuredImage,
+    filters,
+    date,
+    title
+} = Astro.props;
+---
+
+<section class="news-intro bg-white pb-6 md:pb-mdMobile pt-lgMobile md:pt-lg">
+    <div class="grid-container">
+        <div class="news-intro-top col-start-3 col-end-13 py-4 md:py-6 border border-transparent border-b-dark border-dashed mb-mdMobile md:mb-md">
+            <a href="#" class="inline-flex gap-x-6 items-center">
+                <Image src={arrowImage} alt="arrow" class="brightness-0 rotate-[180deg] h-[12px] md:h-[20px]"/>
+                <p class="font-mono uppercase">Indietro</p>
+            </a>
+        </div>
+        <div class="news-intro-inner col-start-3 col-end-13">
+            {featuredImage && 
+                <figure class="featured-image relative mb-6">
+                    <Image src={featuredImage} alt="news-featured-image" class="rounded-lg md:rounded-2xl aspect-[1.85] md:aspect-[2.335] object-cover"/>
+                    {filters &&
+                        <div class="filters absolute bottom-0 left-0 w-full p-4 md:px-6">
+                            <div class="flex gap-x-3">
+                                {filters.map(filter => (
+                                    <p class="py-1 px-3 bg-white rounded">{filter}</p>
+                                ))}
+                            </div>
+                        </div>
+                    }
+                </figure>
+            }
+            <p class="date font-mono uppercase mb-2 md:mb-6 opacity-50">{date}</p>
+            <h1 class="h2 title font-thin">{title}</h1>
+        </div>
+    </div>
+</section>

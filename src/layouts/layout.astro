@@ -102,6 +102,31 @@ import { progress } from "motion";
       }
 
       document.addEventListener('scroll', scrollAnimations)
+
+      // Texts fade
+      const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            entry.target.querySelectorAll('.fade-element').forEach((el, index) => {
+              if(entry.intersectionRatio >= 0.75) {
+                if(el) {
+                    if (entry.isIntersecting) {
+                      setTimeout(() => {
+                        el.classList.add('visible');
+                      }, 200 * index);
+                    }
+                }
+              }
+              else {
+                if(entry.boundingClientRect.top > 0)
+                  el.classList.remove('visible');
+              }
+            })
+          });
+      }, {
+        threshold: 0.75
+      });
+
+      document.querySelectorAll('section').forEach(el => observer.observe(el));
     })
   </script>
 </body>

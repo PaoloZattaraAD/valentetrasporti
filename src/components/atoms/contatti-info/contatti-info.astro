@@ -1,0 +1,39 @@
+---
+import locationIcon from '@/assets/images/svg/location_on.svg';
+import scheduleIcon from '@/assets/images/svg/schedule.svg';
+import mailIcon from '@/assets/images/svg/mail.svg';
+import callIcon from '@/assets/images/svg/call.svg';
+
+import { Image } from 'astro:assets';
+---
+
+<div class="info md:flex w-full mb-lgMobile md:mb-lg">
+    <div class="p-6 pb-0 border border-dark border-b-transparent min-w-[50%] flex flex-col gap-y-4 max-md:mb-4">
+        <div class="info-single flex items-center gap-x-4">
+            <div class="icon w-[40px] aspect-square rounded bg-grey-light flex itemx-center justify-center">
+                <Image src={locationIcon} alt="location-icon"/>
+            </div>
+            <p>Via dell'Elettronica, 10 - 36016 Thiene (VI)</p>
+        </div>
+        <div class="info-single flex items-center gap-x-4">
+            <div class="icon w-[40px] aspect-square rounded bg-grey-light flex itemx-center justify-center">
+                <Image src={scheduleIcon} alt="schedule-icon"/>
+            </div>
+            <p>Lun - Sab : 8.00 - 20.00</p>
+        </div>
+    </div>
+    <div class="p-6 pb-0 border border-dark border-b-transparent md:border-l-transparent min-w-[50%] flex flex-col gap-y-4">
+        <div class="info-single flex items-center gap-x-4">
+            <div class="icon w-[40px] aspect-square rounded bg-grey-light flex itemx-center justify-center">
+                <Image src={mailIcon} alt="mail-icon"/>
+            </div>
+            <p>(+39) 0445 361191</p>
+        </div>
+        <div class="info-single flex items-center gap-x-4">
+            <div class="icon w-[40px] aspect-square rounded bg-grey-light flex itemx-center justify-center">
+                <Image src={callIcon} alt="call-icon"/>
+            </div>
+            <p>info@valentetrasporti.com</p>
+        </div>
+    </div>
+</div>

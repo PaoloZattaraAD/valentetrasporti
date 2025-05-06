@@ -110,7 +110,7 @@ const menuRightSubsections = [
     </a>
     <div class="navigation h-full flex gap-x-[55px] lg:gap-x-[70px]">
       <a href="/" class="button relative section-red bg-red text-white font-button h-full px-3 lg:px-5 flex items-center uppercase">
-        <p class="hidden lg:block">Richiedi un preventivo</p>
+        <p class="hidden lg:block tracking-widest text-white">Richiedi un preventivo</p>
         <Image src={headset} alt="logo" class='h-5 w-5 lg:hidden'/>
       </a>
       <div class="flex relative section-menu items-center gap-x-14 text-white font-button h-full pr-5 pl-3 lg:pl-5 flex items-center lg:pr-12">
@@ -119,7 +119,7 @@ const menuRightSubsections = [
           <div class="hamburger-line"></div>
           <div class="hamburger-line"></div>
         </button>
-        <button class="lang-selector hidden lg:block rounded-lg bg-grey-dark w-8 h-8">
+        <button class="lang-selector text-white hidden lg:block rounded-lg bg-grey-dark w-8 h-8">
           IT
         </button>
       </div>
@@ -131,7 +131,7 @@ const menuRightSubsections = [
     <div class="header-menu-inner absolute top-0 right-0 bg-green-light w-screen h-full">
       <div class="max-lg:flex flex-col max-lg:px-5 md:max-h-[840px] grid-container w-full h-full max-lg:max-h-[calc(100%-200px)] overflow-auto max-lg:mt-[100px] lg:pt-[188px] pb-[90px]">
         
-        <div class="menu-left col-start-4 col-span-4 flex flex-col max-lg:pb-11 max-lg:gap-y-6 lg:justify-between">
+        <div class="menu-left col-start-4 col-span-4 flex flex-col max-lg:pb-11 gap-y-[56px]">
           {menuLeftSubsections.map((subsection) => (
             <div class="menu-left-subsection">
               <h2 class="text-white mb-4 lg:mb-6">{subsection.title}</h2>
@@ -147,7 +147,7 @@ const menuRightSubsections = [
           ))}
         </div>
 
-        <div class="menu-right col-start-9 col-span-4 flex flex-col max-lg:pt-11 max-lg:gap-y-11 justify-between">
+        <div class="menu-right col-start-9 col-span-4 flex flex-col max-lg:pt-11 gap-y-[96px]">
           {menuRightSubsections.map((subsection) => (
             <div class="menu-right-subsection">
               <h5 class="font-button uppercase button-text text-white mb-4 lg:mb-6">{subsection.title}</h2>
@@ -166,7 +166,7 @@ const menuRightSubsections = [
       </div>
 
       <div class="contact-us absolute bottom-0 left-0">
-        <a href="#" class="h4 inline-block lg:w-[216px] max-lg:pr-4 max-lg:pl-5 py-7 lg:py-16 bg-white text-dark text-center">
+        <a href="/contatti" class="h4 inline-block lg:w-[216px] max-lg:pr-4 max-lg:pl-5 py-7 lg:py-16 bg-white text-dark text-center">
           <span class="lg:hidden">Contatti</span>
           <span class="max-lg:hidden">Contattaci</span>
         </a>

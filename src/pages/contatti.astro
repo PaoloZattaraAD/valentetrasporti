@@ -1,0 +1,73 @@
+---
+import './stylesheets/download.scss';
+
+// Components
+import Layout from '@/layouts/layout.astro';
+import PageIntro from '@/components/blocks/page-intro/page-intro.astro';
+import BlockTab from '@/components/atoms/block-tab/block-tab.astro';
+import ContattiBlock from '@/components/blocks/contatti/contatti.astro';
+import Services from '@/components/blocks/services/services.astro';
+
+// Assets - General
+import introImg from '@/assets/images/contatti/contatti-header-desk.webp';
+import introImgMobile from '@/assets/images/contatti/contatti-header-mobile.webp';
+
+// Assets - Services
+import trasportoImg from '@/assets/images/svg/trasporto-merci-illustrazione.svg';
+import autogruImg from '@/assets/images/svg/trasporto-merci-illustrazione.svg';
+import logisticaImg from '@/assets/images/svg/trasporto-merci-illustrazione.svg';
+
+const services = [
+    {
+      name: "Traporto merci",
+      description: "Servizi di trasporto merci con bilici, motrici e furgoni. La nostra flotta comprende mezzi centinati, aperti e furgonati, ideali per il trasporto di merci standard, eccezionali e ADR. Affidabilità e flessibilità per ogni esigenza logistica.",
+      url: "url 1",
+      image: trasportoImg,
+      imageAlt: "trasporto",
+    },
+    {
+      name: "Autogru",
+      description: "Noleggio di autogru fuoristrada ed elettriche per lavori interni, camion con gru per il trasporto e il carico/scarico merci, e pattini a rotolamento per lo spostamento di macchinari pesanti. Soluzioni versatili per ogni necessità operativa.",
+      url: "url 2",
+      image: autogruImg,
+      imageAlt: "autogru",
+    },
+    {
+      name: "Logistica e deposito",
+      description: "SERVIZI 3 di trasporto merci con bilici, motrici e furgoni. La nostra flotta comprende mezzi centinati, aperti e furgonati, ideali per il trasporto di merci standard, eccezionali e ADR. Affidabilità e flessibilità per ogni esigenza logistica. merci standard, eccezionali e ADR. Affidabilità e flessibilità per ogni esigenza logistica. merci standard, eccezionali e ADR. Affidabilità e flessibilità per ogni esigenza logistica.",
+      url: "url 3",
+      image: logisticaImg,
+      imageAlt: "logistica",
+    }
+  ]
+
+---
+
+<Layout
+  title="Astro Tailwind - Home"
+  description="Soluzioni di trasporto professionali, affidabili e puntuali per la tua azienda."
+  activeLink="home"
+  bodyClass="home-page"
+>
+
+  <PageIntro
+      headerColor="light"
+      bgImage={introImg}
+      bgImageMobile={introImgMobile}
+  />
+
+  <BlockTab
+    title="Contatti"
+    content="Scrivici per informazioni e preventivi"
+    titleColor="dark"
+    contentColor="dark"
+    backgroundColor="white"
+  />
+
+  <ContattiBlock />
+
+  <Services
+    services={services}
+  />
+
+</Layout>

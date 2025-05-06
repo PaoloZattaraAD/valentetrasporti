@@ -12,8 +12,8 @@ import TeamMembers from '@/components/blocks/team-members/team-members.astro';
 import Accordion from '@/components/blocks/accordion/accordion.astro';
 
 // Assets - General
-import introImg from '@/assets/images/trasporto-merci/trasporto-merci-header-desk.webp';
-import introImgMobile from '@/assets/images/trasporto-merci/trasporto-merci-header-mobile.webp';
+import introImg from '@/assets/images/governance/governance-header-desk.webp';
+import introImgMobile from '@/assets/images/governance/governance-header-mobile.webp';
 import bridgeImg from '@/assets/images/home/bridge.webp';
 
 // Assets - Services
@@ -27,7 +27,9 @@ import member2 from '@/assets/images/governance/member-1.jpg';
 import member3 from '@/assets/images/governance/member-1.jpg';
 
 // Assets - Accordion
-import accordionImage from '@/assets/images/governance/accordion-image.jpg';
+import accordionImage1 from '@/assets/images/governance/governance-integrita-etica-business.webp';
+import accordionImage2 from '@/assets/images/governance/governance-digitalizzazione-innovazione.webp';
+import accordionImage3 from '@/assets/images/governance/governance-performance-economiche.webp';
 
 const teamMembers = [
   {
@@ -50,21 +52,74 @@ const teamMembers = [
 const accordionElements = [
     {
       title: "Integrità e etica del business",
-      image: accordionImage,
-      content: 
-      '<p class="font-bold">Concorrenza leale</p><br>Valente Angelo S.A.S. aderisce alle regole del libero mercato, evitando comportamenti sleali e azioni contrarie alla concorrenza leale. Non intrattiene rapporti commerciali con soggetti condannati per pratiche di concorrenza sleale, garantendo così integrità e correttezza nel confronto tra operatori economici.'
+      image: accordionImage1,
+      content: `
+      <p class="subtitle font-bold">Concorrenza leale</p>
+      Valente Angelo S.A.S. aderisce alle regole del libero mercato, evitando comportamenti sleali e azioni contrarie alla concorrenza leale. Non intrattiene rapporti commerciali con soggetti condannati per pratiche di concorrenza sleale, garantendo così integrità e correttezza nel confronto tra operatori economici.
+      <br>
+      <br>
+      <p class="subtitle font-bold">Tutela della Proprietà Intellettuale</p>
+      L’azienda riconosce l’importanza della proprietà intellettuale come pilastro per il proprio sviluppo. Tutela rigorosamente i diritti legati alla proprietà intellettuale, rispettando le normative e i principi vigenti, con l’obiettivo di garantire innovazione e crescita.
+      <br>
+      <br>
+      <p class="subtitle font-bold">Rispetto delle Leggi</p>
+      Valente Angelo S.A.S. promuove il rispetto delle leggi nei paesi in cui opera, assicurandone una corretta conoscenza e applicazione. Collabora lealmente con le autorità pubbliche e adotta una politica di tolleranza zero verso attività illecite, imponendo lo stesso principio ai propri partner commerciali, con la risoluzione dei rapporti in caso di violazioni.
+      <br>
+      <br>
+      <p class="subtitle font-bold">Etica commerciale</p>
+      Non svolge attività illecite e impone lo stesso standard ai partner commerciali, interrompendo i rapporti in caso di violazioni.
+      <br>
+      <br>
+      <p class="subtitle font-bold">Comportamenti Etici</p>
+      L’azienda sostiene un approccio basato sull’onestà e sulla buona fede, applicandolo in tutte le relazioni commerciali e lavorative. Questi principi guidano ogni fase delle relazioni, siano esse pre-contrattuali, contrattuali o extra-contrattuali, garantendo un ambiente di fiducia e rispetto reciproco.
+      `
     },
     {
-      title: "Integrità e etica del business",
-      image: accordionImage,
-      content: 
-      '<p class="font-bold">Concorrenza leale</p><br>Valente Angelo S.A.S. aderisce alle regole del libero mercato, evitando comportamenti sleali e azioni contrarie alla concorrenza leale. Non intrattiene rapporti commerciali con soggetti condannati per pratiche di concorrenza sleale, garantendo così integrità e correttezza nel confronto tra operatori economici.<br><br><p class="font-bold">Concorrenza leale</p><br>Valente Angelo S.A.S. aderisce alle regole del libero mercato, evitando comportamenti sleali e azioni contrarie alla concorrenza leale. Non intrattiene rapporti commerciali con soggetti condannati per pratiche di concorrenza sleale, garantendo così integrità e correttezza nel confronto tra operatori economici.<br><br><p class="font-bold">Concorrenza leale</p><br>Valente Angelo S.A.S. aderisce alle regole del libero mercato, evitando comportamenti sleali e azioni contrarie alla concorrenza leale. Non intrattiene rapporti commerciali con soggetti condannati per pratiche di concorrenza sleale, garantendo così integrità e correttezza nel confronto tra operatori economici.<br><br><p class="font-bold">Concorrenza leale</p><br>Valente Angelo S.A.S. aderisce alle regole del libero mercato, evitando comportamenti sleali e azioni contrarie alla concorrenza leale. Non intrattiene rapporti commerciali con soggetti condannati per pratiche di concorrenza sleale, garantendo così integrità e correttezza nel confronto tra operatori economici.<br><br><p class="font-bold">Concorrenza leale</p><br>Valente Angelo S.A.S. aderisce alle regole del libero mercato, evitando comportamenti sleali e azioni contrarie alla concorrenza leale. Non intrattiene rapporti commerciali con soggetti condannati per pratiche di concorrenza sleale, garantendo così integrità e correttezza nel confronto tra operatori economici.<br><br>'
+      title: "Digitalizzazione, innnovazione tecnologica e privacy",
+      image: accordionImage2,
+      content: `
+      <p class="subtitle font-bold">Protezione dei dati</p>
+      La Soc. Valente rispetta rigorosamente la normativa sulla privacy, assicurando la protezione dei dati sensibili in ogni fase delle operazioni.
+      <br>
+      <br>
+      <p class="subtitle font-bold">Digitalizzazione e sicurezza</p>
+      L’azienda considera la digitalizzazione e la sicurezza un binomio essenziale per garantire trasparenza e protezione nella gestione dei dati.
+      <br>
+      <br>
+      <p class="subtitle font-bold">Monitoraggio del parco mezzi</p>
+      Disponiamo di 17 veicoli (16 EURO 6, 1 EURO 5) e 2 furgoncini. Sei veicoli sono dotati di guida autonoma di livello 2, per una maggiore sicurezza ed efficienza.
+      <br>
+      <br>
+      <p class="subtitle font-bold">Tecnologie avanzate</p>
+      Utilizzo di Webfleet per monitorare in tempo reale parametri come la pressione degli pneumatici, migliorando sicurezza e operatività.
+      <br>
+      <br>
+      <p class="subtitle font-bold">Investimenti continui</p>
+      L’azienda rinnova costantemente i veicoli per rispettare le normative ambientali e adottare tecnologie all’avanguardia.
+      <br>
+      <br>
+      <p class="subtitle font-bold">Area di miglioramento</p>
+      L’attuale sistema gestionale, datato e a basso costo, è previsto per un futuro aggiornamento, in linea con la strategia di innovazione.
+      `
     },
     {
-      title: "Integrità e etica del business",
-      image: accordionImage,
-      content: 
-      '<p class="font-bold">Concorrenza leale</p><br>Valente Angelo S.A.S. aderisce alle regole del libero mercato, evitando comportamenti sleali e azioni contrarie alla concorrenza leale. Non intrattiene rapporti commerciali con soggetti condannati per pratiche di concorrenza sleale, garantendo così integrità e correttezza nel confronto tra operatori economici.'
+      title: "Performance economiche 2023",
+      image: accordionImage3,
+      content: `
+      Per Valente Angelo S.A.S., sostenibilità e creazione di valore sono strettamente connesse. Contribuire alla crescita economica, sociale e ambientale del contesto in cui opera consente di generare valore per l’azienda e i suoi stakeholder. Questo valore, misurato secondo gli standard internazionali GRI, comprende il valore economico direttamente creato e distribuito.
+      <br>
+      <br>
+      <p class="subtitle font-bold">Valore economico diretto generato: 3.016.412,58</p>
+      Si riferisce ai ricavi dell’azienda, comprendendo le vendite nette, i proventi derivanti da investimenti finanziari e la vendita di beni.
+      <br>
+      <br>
+      <p class="subtitle font-bold">Valore economico distribuito: 2.828.090,81</p>
+      Include invece le seguenti componenti: costi operativi, salari e benefit per i dipendenti, pagamenti ai fornitori di capitale, pagamenti alla Pubblica Amministrazione e investimenti nella comunità.
+      <br>
+      <br>
+      <p class="subtitle font-bold">Valore economico non distribuito: 330.361,76</p>
+      Rappresenta il valore economico diretto generato meno valore economico distribuito, ovvero l’utile generato.
+      `
     }
 ]
 

@@ -16,13 +16,14 @@ const {
 <section class=`simple-text bg-${bgColor} header-dark`>
     <div class="grid-container">
         <div class="content col-start-3 col-end-13 md:col-end-8">
-            <h2 class="mb-6">{title}</h2>
-            <p class=`h5 ${ctaLabel && ctaUrl ? 'mb-[52px]' : ''}` set:html={content}></p>
+            <h2 class="mb-6 fade-element">{title}</h2>
+            <p class=`h5 ${ctaLabel && ctaUrl ? 'mb-[52px]' : ''} fade-element` set:html={content}></p>
             {ctaLabel && ctaUrl && (
                 <Button
                     label={ctaLabel}
                     url={ctaUrl}
                     style={ctaStyle}
+                    buttonClass="fade-element"
                 />
             )}
         </div>
